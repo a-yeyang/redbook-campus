@@ -36,24 +36,6 @@ graph TD
     MQ --> CT[Counter Service]
     MQ --> ES[Elasticsearch]
     U --> R[Redis Cluster]
-技术组件矩阵
-领域	关键技术栈
-服务治理	Nacos 2.x + OpenFeign + Spring Cloud Gateway
-数据存储	MySQL 8.0（分库分表） + Cassandra 4.x + Redis 7.x
-高可用方案	RocketMQ 5.x + Hystrix + Sentinel
-安全体系	SaToken + JWT + RBAC模型 + 阿里云SMS
-运维监控	Prometheus + Grafana + SkyWalking 9.x
-🚀 核心优势
-高性能设计
-三级缓存体系：Caffeine本地缓存 + Redis分布式缓存 + 数据库防穿透保护
 
-异步削峰方案：MQ顺序消息 + 令牌桶限流 + 批量聚合写入
-
-智能ID服务：美团Leaf号段模式（19亿/日生成能力） + 雪花算法
-
-高可用保障
-服务熔断：异常流量自动降级，核心业务线程池隔离
-
-数据最终一致：MQ事务消息 + 分片补偿任务 + 增量对齐机制
 
 集群部署：Nacos集群 + Redis哨兵模式 + Minio分布式存储
