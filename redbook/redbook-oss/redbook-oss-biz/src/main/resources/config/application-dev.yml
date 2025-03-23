@@ -1,0 +1,13 @@
+#=================================================================
+# 对象存储配置
+#=================================================================
+storage:
+  minio:
+    endpoint: http://127.0.0.1:9000
+    accessKey: yeyangcoding
+    secretKey: yeyangcoding
+  aliyun-oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    accessKey: LTAI5tGmQWY95NF21vSEMbZh
+    secretKey:  C7p0ODF3JqutIJooW0WAJOFn4kYmoY
+

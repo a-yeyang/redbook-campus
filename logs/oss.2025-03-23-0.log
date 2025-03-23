@@ -1,0 +1,43 @@
+2025-03-23 12:34:43.896 [http-nio-8081-exec-10] INFO  org.apache.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [PING0x0d0x0a...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:272)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.694 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52034] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.716 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52034] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.750 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52034] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 16:16:16.817 [http-nio-8081-exec-1] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 设置 userId 到 ThreadLocal 中， 用户 ID: 6101
+2025-03-23 16:16:16.820 [http-nio-8081-exec-1] INFO  c.yeyang.redbook.oss.biz.controller.FileController - 当前用户 ID: 6101
+2025-03-23 16:16:16.821 [http-nio-8081-exec-1] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ## 上传文件至 Minio ...
+2025-03-23 16:16:16.821 [http-nio-8081-exec-1] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ==> 开始上传文件至 Minio, ObjectName: 50d08b4024b34650b5a76ab0e8ab16bb.jpg
+2025-03-23 16:16:16.859 [http-nio-8081-exec-1] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ==> 上传文件至 Minio 成功，访问路径: http://127.0.0.1:9000/redbook-learning/50d08b4024b34650b5a76ab0e8ab16bb.jpg
+2025-03-23 16:16:16.862 [http-nio-8081-exec-1] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 删除 ThreadLocal， userId: 6101
+2025-03-23 16:37:23.800 [http-nio-8081-exec-3] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 设置 userId 到 ThreadLocal 中， 用户 ID: 6101
+2025-03-23 16:37:23.807 [http-nio-8081-exec-3] INFO  c.yeyang.redbook.oss.biz.controller.FileController - 当前用户 ID: 6101
+2025-03-23 16:37:23.807 [http-nio-8081-exec-3] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ## 上传文件至 Minio ...
+2025-03-23 16:37:23.807 [http-nio-8081-exec-3] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ==> 开始上传文件至 Minio, ObjectName: 33654035f6514546b12e8b85aeb3d61b.jpg
+2025-03-23 16:37:23.882 [http-nio-8081-exec-3] INFO  c.y.r.oss.biz.strategy.impl.MinioFileStrategy - ==> 上传文件至 Minio 成功，访问路径: http://127.0.0.1:9000/redbook-learning/33654035f6514546b12e8b85aeb3d61b.jpg
+2025-03-23 16:37:23.883 [http-nio-8081-exec-3] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 删除 ThreadLocal， userId: 6101

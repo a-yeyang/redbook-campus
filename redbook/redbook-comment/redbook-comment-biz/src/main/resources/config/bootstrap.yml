@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: redbook-comment # 应用名称
+  profiles:
+    active: dev # 默认激活 dev 本地开发环境
+  cloud:
+    nacos:
+      discovery:
+        enabled: true # 启用服务发现
+        group: DEFAULT_GROUP # 所属组
+        namespace: redbook # 命名空间
+        server-addr: 127.0.0.1:8848 # 指定 Nacos 配置中心的服务器地址

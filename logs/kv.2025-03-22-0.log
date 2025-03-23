@@ -1,0 +1,344 @@
+2025-03-22 10:26:46.155 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:26:46.198 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:26:46.532 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:26:46.542 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:26:46.543 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - The following 1 profile is active: "dev"
+2025-03-22 10:26:46.844 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Cassandra repositories in DEFAULT mode.
+2025-03-22 10:26:46.913 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 66 ms. Found 0 Reactive Cassandra repository interfaces.
+2025-03-22 10:26:46.915 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Cassandra repositories in DEFAULT mode.
+2025-03-22 10:26:46.925 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10 ms. Found 2 Cassandra repository interfaces.
+2025-03-22 10:26:47.018 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=27d87143-0c63-3a8d-9295-d63c182440a0
+2025-03-22 10:26:47.236 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8084 (http)
+2025-03-22 10:26:47.240 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-22 10:26:47.240 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-03-22 10:26:47.302 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-22 10:26:47.302 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 752 ms
+2025-03-22 10:26:47.628 [main] INFO  c.d.o.driver.internal.core.DefaultMavenCoordinates - DataStax Java driver for Apache Cassandra(R) (com.datastax.oss:java-driver-core) version 4.15.0
+2025-03-22 10:26:48.074 [s0-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 10:26:48.551 [s1-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 10:26:50.673 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentContentController': Injection of resource dependencies failed
+2025-03-22 10:26:50.674 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2025-03-22 10:26:50.681 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-22 10:26:50.692 [main] ERROR org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentContentController': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:961)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:915)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.yeyang.redbook.kv.biz.RedbookKVBizApplication.main(RedbookKVBizApplication.java:10)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'commentContentServiceImpl': Injection of resource dependencies failed
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:303)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1397)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:598)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:490)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 17 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cassandraTemplate' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Failed to instantiate [org.springframework.data.cassandra.core.CassandraAdminTemplate]: Factory method 'cassandraTemplate' threw exception with message: Error creating bean with name 'cassandraSessionFactory' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Unsatisfied dependency expressed through method 'cassandraSessionFactory' parameter 0: Error creating bean with name 'cassandraSession' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Invalid keyspace redbook
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:491)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.resolveBeanByName(AbstractAutowireCapableBeanFactory.java:458)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.autowireResource(CommonAnnotationBeanPostProcessor.java:496)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.getResource(CommonAnnotationBeanPostProcessor.java:467)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor$ResourceElement.getResourceToInject(CommonAnnotationBeanPostProcessor.java:618)
+	at org.springframework.beans.factory.annotation.InjectionMetadata$InjectedElement.inject(InjectionMetadata.java:242)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:133)
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessProperties(CommonAnnotationBeanPostProcessor.java:300)
+	... 33 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.cassandra.core.CassandraAdminTemplate]: Factory method 'cassandraTemplate' threw exception with message: Error creating bean with name 'cassandraSessionFactory' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Unsatisfied dependency expressed through method 'cassandraSessionFactory' parameter 0: Error creating bean with name 'cassandraSession' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Invalid keyspace redbook
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:171)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653)
+	... 49 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cassandraSessionFactory' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Unsatisfied dependency expressed through method 'cassandraSessionFactory' parameter 0: Error creating bean with name 'cassandraSession' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Invalid keyspace redbook
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:798)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:548)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1324)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1161)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:561)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:225)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1298)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveNamedBean(DefaultListableBeanFactory.java:1259)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveBean(DefaultListableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:338)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBean(DefaultListableBeanFactory.java:331)
+	at org.springframework.data.cassandra.config.AbstractSessionConfiguration.requireBeanOfType(AbstractSessionConfiguration.java:103)
+	at org.springframework.data.cassandra.config.AbstractCassandraConfiguration.getRequiredSessionFactory(AbstractCassandraConfiguration.java:245)
+	at org.springframework.data.cassandra.config.AbstractCassandraConfiguration.cassandraTemplate(AbstractCassandraConfiguration.java:171)
+	at com.yeyang.redbook.kv.biz.config.CassandraConfig$$SpringCGLIB$$0.CGLIB$cassandraTemplate$16(<generated>)
+	at com.yeyang.redbook.kv.biz.config.CassandraConfig$$SpringCGLIB$$1.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:258)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at com.yeyang.redbook.kv.biz.config.CassandraConfig$$SpringCGLIB$$0.cassandraTemplate(<generated>)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:139)
+	... 50 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'cassandraSession' defined in class path resource [com/yeyang/redbook/kv/biz/config/CassandraConfig.class]: Invalid keyspace redbook
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1751)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1405)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1325)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:885)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:789)
+	... 77 common frames omitted
+Caused by: com.datastax.oss.driver.api.core.InvalidKeyspaceException: Invalid keyspace redbook
+	at com.datastax.oss.driver.api.core.InvalidKeyspaceException.copy(InvalidKeyspaceException.java:34)
+	at com.datastax.oss.driver.internal.core.util.concurrent.CompletableFutures.getUninterruptibly(CompletableFutures.java:149)
+	at com.datastax.oss.driver.api.core.session.SessionBuilder.build(SessionBuilder.java:835)
+	at org.springframework.data.cassandra.config.CqlSessionFactoryBean.buildSession(CqlSessionFactoryBean.java:553)
+	at org.springframework.data.cassandra.config.CqlSessionFactoryBean.afterPropertiesSet(CqlSessionFactoryBean.java:473)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	... 88 common frames omitted
+2025-03-22 10:32:48.817 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:32:48.862 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:32:49.202 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:32:49.210 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:32:49.210 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - The following 1 profile is active: "dev"
+2025-03-22 10:32:49.473 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Cassandra repositories in DEFAULT mode.
+2025-03-22 10:32:49.532 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 56 ms. Found 0 Reactive Cassandra repository interfaces.
+2025-03-22 10:32:49.534 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Cassandra repositories in DEFAULT mode.
+2025-03-22 10:32:49.543 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 8 ms. Found 2 Cassandra repository interfaces.
+2025-03-22 10:32:49.630 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=27d87143-0c63-3a8d-9295-d63c182440a0
+2025-03-22 10:32:49.848 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8084 (http)
+2025-03-22 10:32:49.853 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-22 10:32:49.853 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-03-22 10:32:49.910 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-22 10:32:49.910 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 692 ms
+2025-03-22 10:32:50.072 [main] INFO  c.d.o.driver.internal.core.DefaultMavenCoordinates - DataStax Java driver for Apache Cassandra(R) (com.datastax.oss:java-driver-core) version 4.15.0
+2025-03-22 10:32:53.057 [s0-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 10:32:53.307 [s1-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 10:32:53.594 [main] WARN  o.s.core.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.yeyang.redbook.kv.biz.domain.repository.CommentContentRepository
+2025-03-22 10:32:54.114 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-22 10:32:54.146 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8084 (http) with context path ''
+2025-03-22 10:32:54.150 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 10:32:54.150 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2025-03-22 10:32:54.150 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2025-03-22 10:32:54.151 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2025-03-22 10:32:54.164 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2025-03-22 10:32:54.164 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2025-03-22 10:32:54.165 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2025-03-22 10:32:54.167 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-03-22 10:32:54.168 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-03-22 10:32:54.169 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2025-03-22 10:32:54.174 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 01eedf17-0859-47a8-bad7-4422149d74dc
+2025-03-22 10:32:54.185 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2025-03-22 10:32:54.185 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2025-03-22 10:32:54.185 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2025-03-22 10:32:54.186 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2025-03-22 10:32:54.203 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2025-03-22 10:32:54.813 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1742610774656_172.17.0.1_46458
+2025-03-22 10:32:54.813 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Notify connected event to listeners.
+2025-03-22 10:32:54.813 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2025-03-22 10:32:54.813 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2025-03-22 10:32:54.814 [main] INFO  com.alibaba.nacos.common.remote.client - [01eedf17-0859-47a8-bad7-4422149d74dc] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1545/0x0000018f9f94c810
+2025-03-22 10:32:54.814 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] redbook registering service redbook-kv with instance Instance{instanceId='null', ip='10.108.20.173', port=8084, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={IPv6=[2001:da8:204:1081:0:2ea3:f013:4e5b], preserved.register.source=SPRING_CLOUD}}
+2025-03-22 10:32:54.823 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP redbook-kv 10.108.20.173:8084 register finished
+2025-03-22 10:32:54.949 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - Started RedbookKVBizApplication in 6.609 seconds (process running for 6.999)
+2025-03-22 10:33:04.088 [http-nio-8084-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22 10:33:04.088 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-22 10:33:04.088 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-03-22 12:31:08.580 [Thread-24] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient
+2025-03-22 12:31:08.580 [Thread-21] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher
+2025-03-22 12:31:08.584 [Thread-21] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end
+2025-03-22 12:31:08.585 [Thread-24] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end
+2025-03-22 12:31:10.754 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2025-03-22 12:31:10.754 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] redbook deregistering service redbook-kv with instance: Instance{instanceId='null', ip='10.108.20.173', port=8084, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2025-03-22 12:31:10.767 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2025-03-22 12:31:10.767 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2025-03-22 12:31:10.767 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2025-03-22 12:31:10.767 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2025-03-22 12:31:10.767 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2025-03-22 12:31:10.768 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2025-03-22 12:31:10.769 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@7e31154a[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2025-03-22 12:31:10.769 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1742610774656_172.17.0.1_46458
+2025-03-22 12:31:10.770 [nacos-grpc-client-executor-127.0.0.1-1440] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - [1742610774656_172.17.0.1_46458]Ignore complete event,isRunning:false,isAbandon=false
+2025-03-22 12:31:10.773 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@72909417[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 1441]
+2025-03-22 12:31:10.773 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@5b86a94f[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 2359]
+2025-03-22 12:31:10.773 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2025-03-22 12:31:10.773 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2025-03-22 12:31:10.774 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2025-03-22 14:59:27.166 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 14:59:27.208 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 14:59:27.545 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 14:59:27.554 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 14:59:27.555 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - The following 1 profile is active: "dev"
+2025-03-22 14:59:27.842 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Cassandra repositories in DEFAULT mode.
+2025-03-22 14:59:27.915 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 70 ms. Found 0 Reactive Cassandra repository interfaces.
+2025-03-22 14:59:27.918 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Cassandra repositories in DEFAULT mode.
+2025-03-22 14:59:27.930 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11 ms. Found 2 Cassandra repository interfaces.
+2025-03-22 14:59:28.035 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=27d87143-0c63-3a8d-9295-d63c182440a0
+2025-03-22 14:59:28.283 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8084 (http)
+2025-03-22 14:59:28.288 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-22 14:59:28.288 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-03-22 14:59:28.354 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-22 14:59:28.354 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 792 ms
+2025-03-22 14:59:28.612 [main] INFO  c.d.o.driver.internal.core.DefaultMavenCoordinates - DataStax Java driver for Apache Cassandra(R) (com.datastax.oss:java-driver-core) version 4.15.0
+2025-03-22 14:59:29.038 [s0-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 14:59:29.408 [s1-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 14:59:29.667 [main] WARN  o.s.core.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.yeyang.redbook.kv.biz.domain.repository.CommentContentRepository
+2025-03-22 14:59:30.201 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-22 14:59:30.240 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8084 (http) with context path ''
+2025-03-22 14:59:30.244 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 14:59:30.244 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2025-03-22 14:59:30.245 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2025-03-22 14:59:30.245 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2025-03-22 14:59:30.259 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2025-03-22 14:59:30.259 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2025-03-22 14:59:30.259 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2025-03-22 14:59:30.263 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-03-22 14:59:30.263 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-03-22 14:59:30.264 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2025-03-22 14:59:30.270 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 178633a3-9241-475e-9c82-a0c432dd3fad
+2025-03-22 14:59:30.282 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2025-03-22 14:59:30.282 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2025-03-22 14:59:30.282 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2025-03-22 14:59:30.283 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2025-03-22 14:59:30.302 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2025-03-22 14:59:30.930 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1742626770777_172.17.0.1_40512
+2025-03-22 14:59:30.930 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Notify connected event to listeners.
+2025-03-22 14:59:30.930 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2025-03-22 14:59:30.930 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2025-03-22 14:59:30.931 [main] INFO  com.alibaba.nacos.common.remote.client - [178633a3-9241-475e-9c82-a0c432dd3fad] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1547/0x0000025e8192dd88
+2025-03-22 14:59:30.931 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] redbook registering service redbook-kv with instance Instance{instanceId='null', ip='10.108.20.173', port=8084, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={IPv6=[2001:da8:204:1081:0:2ea3:f013:4e5b], preserved.register.source=SPRING_CLOUD}}
+2025-03-22 14:59:30.943 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP redbook-kv 10.108.20.173:8084 register finished
+2025-03-22 14:59:31.082 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - Started RedbookKVBizApplication in 4.429 seconds (process running for 4.776)
+2025-03-22 16:57:46.614 [http-nio-8084-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22 16:57:46.617 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-22 16:57:46.631 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2025-03-22 17:46:52.159 [Thread-24] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Start destroying common HttpClient
+2025-03-22 17:46:52.159 [Thread-21] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Start destroying Publisher
+2025-03-22 17:46:52.161 [Thread-21] WARN  com.alibaba.nacos.common.notify.NotifyCenter - [NotifyCenter] Destruction of the end
+2025-03-22 17:46:52.162 [Thread-24] WARN  c.alibaba.nacos.common.http.HttpClientBeanHolder - [HttpClientBeanHolder] Destruction of the end
+2025-03-22 17:46:54.303 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registering from Nacos Server now...
+2025-03-22 17:46:54.303 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - [DEREGISTER-SERVICE] redbook deregistering service redbook-kv with instance: Instance{instanceId='null', ip='10.108.20.173', port=8084, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={}}
+2025-03-22 17:46:54.308 [SpringApplicationShutdownHook] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - De-registration finished.
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.backups.FailoverReactor do shutdown stop
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.cache.ServiceInfoHolder do shutdown stop
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServiceInfoUpdateService do shutdown stop
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.core.ServerListManager do shutdown stop
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown begin
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Start destroying NacosRestTemplate
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] WARN  com.alibaba.nacos.client.naming - [NamingHttpClientManager] Destruction of the end
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.http.NamingHttpClientProxy do shutdown stop
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown rpc client, set status to shutdown
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Shutdown client event executor java.util.concurrent.ScheduledThreadPoolExecutor@64505d3e[Running, pool size = 2, active threads = 2, queued tasks = 0, completed tasks = 0]
+2025-03-22 17:46:54.309 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.common.remote.client - Close current connection 1742626770777_172.17.0.1_40512
+2025-03-22 17:46:54.311 [nacos-grpc-client-executor-127.0.0.1-2034] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - [1742626770777_172.17.0.1_40512]Ignore complete event,isRunning:false,isAbandon=false
+2025-03-22 17:46:54.313 [SpringApplicationShutdownHook] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - Shutdown grpc executor java.util.concurrent.ThreadPoolExecutor@4ef3353e[Running, pool size = 4, active threads = 0, queued tasks = 0, completed tasks = 2035]
+2025-03-22 17:46:54.313 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - Shutdown grpc redo service executor java.util.concurrent.ScheduledThreadPoolExecutor@785189fe[Running, pool size = 1, active threads = 0, queued tasks = 1, completed tasks = 3338]
+2025-03-22 17:46:54.313 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - [null] CredentialWatcher is stopped
+2025-03-22 17:46:54.313 [SpringApplicationShutdownHook] INFO  c.a.n.client.auth.ram.identify.CredentialService - [null] CredentialService is freed
+2025-03-22 17:46:54.313 [SpringApplicationShutdownHook] INFO  com.alibaba.nacos.client.naming - com.alibaba.nacos.client.naming.remote.NamingClientProxyDelegate do shutdown stop
+2025-03-22 19:38:25.970 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 19:38:26.013 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 19:38:26.332 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 19:38:26.339 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 19:38:26.339 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - The following 1 profile is active: "dev"
+2025-03-22 19:38:26.608 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Reactive Cassandra repositories in DEFAULT mode.
+2025-03-22 19:38:26.667 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57 ms. Found 0 Reactive Cassandra repository interfaces.
+2025-03-22 19:38:26.669 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Cassandra repositories in DEFAULT mode.
+2025-03-22 19:38:26.678 [main] INFO  o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 2 Cassandra repository interfaces.
+2025-03-22 19:38:26.762 [main] INFO  o.springframework.cloud.context.scope.GenericScope - BeanFactory id=27d87143-0c63-3a8d-9295-d63c182440a0
+2025-03-22 19:38:26.969 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8084 (http)
+2025-03-22 19:38:26.975 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2025-03-22 19:38:26.975 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2025-03-22 19:38:27.033 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-03-22 19:38:27.033 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 687 ms
+2025-03-22 19:38:27.269 [main] INFO  c.d.o.driver.internal.core.DefaultMavenCoordinates - DataStax Java driver for Apache Cassandra(R) (com.datastax.oss:java-driver-core) version 4.15.0
+2025-03-22 19:38:27.622 [s0-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 19:38:28.093 [s1-admin-0] INFO  com.datastax.oss.driver.internal.core.time.Clock - Using native clock for microsecond precision
+2025-03-22 19:38:28.374 [main] WARN  o.s.core.LocalVariableTableParameterNameDiscoverer - Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.yeyang.redbook.kv.biz.domain.repository.CommentContentRepository
+2025-03-22 19:38:28.888 [main] WARN  o.s.c.l.c.LoadBalancerCacheAutoConfiguration$LoadBalancerCaffeineWarnLogger - Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-03-22 19:38:28.920 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8084 (http) with context path ''
+2025-03-22 19:38:28.924 [main] WARN  com.alibaba.nacos.client.logging.NacosLogging - Load Logback Configuration of Nacos fail, message: Could not initialize Logback Nacos logging from classpath:nacos-logback.xml
+2025-03-22 19:38:28.924 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ans.namespace attribute : null
+2025-03-22 19:38:28.924 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from ALIBABA_ALIWARE_NAMESPACE attribute :null
+2025-03-22 19:38:28.925 [main] INFO  com.alibaba.nacos.client.naming - initializer namespace from namespace attribute :null
+2025-03-22 19:38:28.938 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [req-serv] nacos-server port:8848
+2025-03-22 19:38:28.938 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - [settings] [http-client] connect timeout:1000
+2025-03-22 19:38:28.938 [main] INFO  com.alibaba.nacos.client.utils.ParamUtil - PER_TASK_CONFIG_SIZE: 3000.0
+2025-03-22 19:38:28.941 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.impl.NacosClientAuthServiceImpl success.
+2025-03-22 19:38:28.941 [main] INFO  c.a.n.p.auth.spi.client.ClientAuthPluginManager - [ClientAuthPluginManager] Load ClientAuthService com.alibaba.nacos.client.auth.ram.RamClientAuthServiceImpl success.
+2025-03-22 19:38:28.942 [main] INFO  c.a.n.client.auth.ram.identify.CredentialWatcher - null No credential found
+2025-03-22 19:38:28.947 [main] INFO  com.alibaba.nacos.common.remote.client - [RpcClientFactory] create a new rpc client of 4db15677-25e6-40dd-84f0-1ba0a6221204
+2025-03-22 19:38:28.958 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] RpcClient init, ServerListFactory = com.alibaba.nacos.client.naming.core.ServerListManager
+2025-03-22 19:38:28.958 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Registry connection listener to current client:com.alibaba.nacos.client.naming.remote.gprc.redo.NamingGrpcRedoService
+2025-03-22 19:38:28.958 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Register server push request handler:com.alibaba.nacos.client.naming.remote.gprc.NamingPushRequestHandler
+2025-03-22 19:38:28.959 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Try to connect to server on start up, server: {serverIp = '127.0.0.1', server main port = 8848}
+2025-03-22 19:38:28.977 [main] INFO  c.a.nacos.common.remote.client.grpc.GrpcClient - grpc client connection server:127.0.0.1 ip,serverPort:9848,grpcTslConfig:{"sslProvider":"OPENSSL","enableTls":false,"mutualAuthEnable":false,"trustAll":false}
+2025-03-22 19:38:29.582 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Success to connect to server [127.0.0.1:8848] on start up, connectionId = 1742643509420_172.17.0.1_35762
+2025-03-22 19:38:29.583 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Notify connected event to listeners.
+2025-03-22 19:38:29.583 [com.alibaba.nacos.client.remote.worker] INFO  com.alibaba.nacos.client.naming - Grpc connection connect
+2025-03-22 19:38:29.583 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$ConnectResetRequestHandler
+2025-03-22 19:38:29.583 [main] INFO  com.alibaba.nacos.common.remote.client - [4db15677-25e6-40dd-84f0-1ba0a6221204] Register server push request handler:com.alibaba.nacos.common.remote.client.RpcClient$$Lambda$1543/0x00000127b092b320
+2025-03-22 19:38:29.584 [main] INFO  com.alibaba.nacos.client.naming - [REGISTER-SERVICE] redbook registering service redbook-kv with instance Instance{instanceId='null', ip='10.108.20.173', port=8084, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='DEFAULT', serviceName='null', metadata={IPv6=[2001:da8:204:1081:0:2ea3:f013:4e5b], preserved.register.source=SPRING_CLOUD}}
+2025-03-22 19:38:29.592 [main] INFO  c.a.cloud.nacos.registry.NacosServiceRegistry - nacos registry, DEFAULT_GROUP redbook-kv 10.108.20.173:8084 register finished
+2025-03-22 19:38:29.724 [main] INFO  com.yeyang.redbook.kv.biz.RedbookKVBizApplication - Started RedbookKVBizApplication in 4.237 seconds (process running for 4.582)
+2025-03-22 19:40:58.122 [http-nio-8084-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-03-22 19:40:58.122 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-03-22 19:40:58.123 [http-nio-8084-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms

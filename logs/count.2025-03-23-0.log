@@ -1,0 +1,220 @@
+2025-03-23 09:56:52.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_2] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2111,"type":1}...
+2025-03-23 09:56:52.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_1] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2113,"type":1}...
+2025-03-23 09:56:53.185 [NettyClientPublicExecutor_1] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E5F3E0001, offsetMsgId=0A6C14AD00002A9F00000000008AEDDE, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=0]
+2025-03-23 09:56:53.186 [NettyClientPublicExecutor_2] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E5F3E0000, offsetMsgId=0A6C14AD00002A9F00000000008AEF1E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=2], queueOffset=0]
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_3] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2114,"type":1}...
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_4] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2112,"type":1}...
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_5] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2115,"type":1}...
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_6] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2105,"type":1}...
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_7] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2104,"type":1}...
+2025-03-23 09:56:53.825 [ConsumeMessageThread_redbook_group_CountFollowingTopic_8] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ## 消费到了 MQ 【计数: 关注数】, {"userId":21,"targetUserId":2102,"type":1}...
+2025-03-23 09:56:53.828 [NettyClientPublicExecutor_4] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C20002, offsetMsgId=0A6C14AD00002A9F00000000008AF05E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=2], queueOffset=1]
+2025-03-23 09:56:53.827 [NettyClientPublicExecutor_3] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C30004, offsetMsgId=0A6C14AD00002A9F00000000008AF19E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=1]
+2025-03-23 09:56:53.828 [NettyClientPublicExecutor_6] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C30006, offsetMsgId=0A6C14AD00002A9F00000000008AF55E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=3]
+2025-03-23 09:56:53.828 [NettyClientPublicExecutor_5] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C30005, offsetMsgId=0A6C14AD00002A9F00000000008AF2DE, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=2]
+2025-03-23 09:56:53.828 [NettyClientPublicExecutor_7] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C20003, offsetMsgId=0A6C14AD00002A9F00000000008AF41E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=2], queueOffset=2]
+2025-03-23 09:56:53.828 [NettyClientPublicExecutor_8] INFO  c.y.r.count.biz.consumer.CountFollowingConsumer - ==> 【计数服务：关注数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61C30007, offsetMsgId=0A6C14AD00002A9F00000000008AF69E, messageQueue=MessageQueue [topic=CountFollowing2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=4]
+2025-03-23 09:56:53.865 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.redbook.count.biz.consumer.CountFansConsumer - ==> 聚合消息, size: 8
+2025-03-23 09:56:53.869 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.redbook.count.biz.consumer.CountFansConsumer - ==> 聚合消息, ["{\"userId\":21,\"targetUserId\":2102,\"type\":1}","{\"userId\":21,\"targetUserId\":2112,\"type\":1}","{\"userId\":21,\"targetUserId\":2114,\"type\":1}","{\"userId\":21,\"targetUserId\":2111,\"type\":1}","{\"userId\":21,\"targetUserId\":2113,\"type\":1}","{\"userId\":21,\"targetUserId\":2105,\"type\":1}","{\"userId\":21,\"targetUserId\":2104,\"type\":1}","{\"userId\":21,\"targetUserId\":2115,\"type\":1}"]
+2025-03-23 09:56:53.876 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.redbook.count.biz.consumer.CountFansConsumer - ## 聚合后的计数数据: {"2112":1,"2113":1,"2114":1,"2115":1,"2102":1,"2104":1,"2105":1,"2111":1}
+2025-03-23 09:56:53.889 [NettyClientPublicExecutor_9] INFO  c.y.redbook.count.biz.consumer.CountFansConsumer - ==> 【计数服务：粉丝数入库】MQ 发送成功，SendResult: SendResult [sendStatus=SEND_OK, msgId=7F0000016C0463947C6B736E61FD0008, offsetMsgId=0A6C14AD00002A9F00000000008AF7DE, messageQueue=MessageQueue [topic=CountFans2DBTopic, brokerName=DESKTOP-217A2J4, queueId=0], queueOffset=0]
+2025-03-23 09:57:13.720 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] INFO  c.y.r.count.biz.consumer.CountFans2DBConsumer - ## 消费到了 MQ 【计数: 粉丝数入库】, {"2112":1,"2113":1,"2114":1,"2115":1,"2102":1,"2104":1,"2105":1,"2111":1}...
+2025-03-23 09:57:13.775 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_2] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2102,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_4] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2111,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_3] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2104,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_1] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2113,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_5] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2105,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_6] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2114,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_8] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2115,"type":1}...
+2025-03-23 09:57:13.790 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_7] INFO  c.y.r.count.biz.consumer.CountFollowing2DBConsumer - ## 消费到了 MQ 【计数: 关注数入库】, {"userId":21,"targetUserId":2112,"type":1}...
+2025-03-23 09:57:13.793 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_2] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.796 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_3] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.798 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.800 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_6] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.802 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_4] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.804 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_7] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.807 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_5] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.809 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_8] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, following_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE following_total = following_total + (?);
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2112(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_2] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_3] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_7] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_6] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_5] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_4] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.961 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_8] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - ==> Parameters: 21(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.970 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_7] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.972 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.972 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.972 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2113(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.973 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_3] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.975 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.975 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.976 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2114(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.976 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.977 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_4] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.979 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.979 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.979 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2115(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.980 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_5] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.982 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.982 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.983 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2102(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.984 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_6] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.986 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.986 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.986 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2104(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.988 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.988 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.989 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2105(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.991 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.991 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==>  Preparing: INSERT INTO t_user_count (user_id, fans_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE fans_total = fans_total + (?);
+2025-03-23 09:57:13.992 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - ==> Parameters: 2111(Long), 1(Integer), 1(Integer)
+2025-03-23 09:57:13.993 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_2] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.995 [ConsumeMessageThread_redbook_group_CountFollowing2DBTopic_8] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFollowingTotalByUserId - <==    Updates: 2
+2025-03-23 09:57:13.996 [ConsumeMessageThread_redbook_group_CountFans2DBTopic_1] DEBUG c.y.r.c.b.d.m.U.insertOrUpdateFansTotalByUserId - <==    Updates: 2
+2025-03-23 10:40:03.849 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:40:03.849 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20017,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:40:03.964 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:40:03.964 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20017,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:40:03.971 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:40:03.972 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:40:03.986 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 1
+2025-03-23 10:46:41.180 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:46:41.180 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20018,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:46:41.339 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:46:41.339 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20018,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:46:41.342 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:46:41.342 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:46:41.345 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 10:50:45.554 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:50:45.554 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20019,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:50:45.557 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:50:45.557 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:50:45.564 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 10:50:46.389 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:50:46.389 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20019,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:51:43.433 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:51:43.433 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20020,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:51:43.613 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:51:43.613 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20020,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:51:43.615 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:51:43.615 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:51:43.630 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 10:56:38.894 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:56:38.894 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20021,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:56:38.896 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:56:38.896 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:56:38.898 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 10:56:39.674 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:56:39.674 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20021,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:59:46.807 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 10:59:46.807 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20023,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:59:47.061 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 10:59:47.061 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20023,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 10:59:47.063 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 10:59:47.063 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 10:59:47.064 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 11:03:41.770 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:03:41.770 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20025,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 11:03:41.947 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:03:41.947 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903346886589284414,\"commentId\":20025,\"level\":1,\"parentId\":1903346886589284414}]"]
+2025-03-23 11:03:41.949 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:03:41.950 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903346886589284414(Long), 1(Integer), 1(Integer)
+2025-03-23 11:03:41.953 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 11:10:54.434 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:10:54.434 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903411576052908110,\"commentId\":20027,\"level\":1,\"parentId\":1903411576052908110}]"]
+2025-03-23 11:10:54.436 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:10:54.437 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903411576052908110(Long), 1(Integer), 1(Integer)
+2025-03-23 11:10:54.438 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 1
+2025-03-23 11:10:55.266 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:10:55.266 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903411576052908110,\"commentId\":20027,\"level\":1,\"parentId\":1903411576052908110}]"]
+2025-03-23 11:15:16.650 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:15:16.650 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903411576052908110,\"commentId\":20028,\"level\":1,\"parentId\":1903411576052908110}]"]
+2025-03-23 11:15:16.652 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:15:16.652 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903411576052908110(Long), 1(Integer), 1(Integer)
+2025-03-23 11:15:16.657 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 11:15:17.492 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:15:17.492 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903411576052908110,\"commentId\":20028,\"level\":1,\"parentId\":1903411576052908110}]"]
+2025-03-23 11:17:54.609 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:17:54.609 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":190341157605290811,\"commentId\":20029,\"level\":1,\"parentId\":190341157605290811}]"]
+2025-03-23 11:17:54.807 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:17:54.807 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":190341157605290811,\"commentId\":20029,\"level\":1,\"parentId\":190341157605290811}]"]
+2025-03-23 11:17:54.809 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:17:54.809 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 190341157605290811(Long), 1(Integer), 1(Integer)
+2025-03-23 11:17:54.825 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 1
+2025-03-23 11:18:05.618 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:18:05.618 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20030,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:18:05.835 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:18:05.835 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20030,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:18:05.836 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:18:05.837 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903411576052(Long), 1(Integer), 1(Integer)
+2025-03-23 11:18:05.852 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 1
+2025-03-23 11:18:35.880 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:18:35.880 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20031,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:18:35.881 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:18:35.882 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903411576052(Long), 1(Integer), 1(Integer)
+2025-03-23 11:18:35.884 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 11:18:36.645 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:18:36.645 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20031,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:22:55.410 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:22:55.410 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20032,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:22:55.412 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:22:55.412 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903411576052(Long), 1(Integer), 1(Integer)
+2025-03-23 11:22:55.419 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 11:22:56.143 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:22:56.143 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903411576052,\"commentId\":20032,\"level\":1,\"parentId\":1903411576052}]"]
+2025-03-23 11:23:12.173 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 11:23:12.173 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20033,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 11:23:12.435 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 11:23:12.435 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20033,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 11:23:12.436 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 11:23:12.437 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903422411647221784(Long), 1(Integer), 1(Integer)
+2025-03-23 11:23:12.452 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 1
+2025-03-23 12:34:43.958 [http-nio-8090-exec-1] INFO  org.apache.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [PING0x0d0x0a...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:272)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.702 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52668] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.727 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52668] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.756 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52668] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 16:04:24.919 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 16:04:24.919 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 16:04:24.920 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20034,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 16:04:24.920 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20034,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 16:04:24.936 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 16:04:24.938 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903422411647221784(Long), 1(Integer), 1(Integer)
+2025-03-23 16:04:24.944 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2
+2025-03-23 16:34:19.545 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, size: 1
+2025-03-23 16:34:19.545 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, size: 1
+2025-03-23 16:34:19.545 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.count.biz.consumer.CountNoteCommentConsumer - ==> 【笔记评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20035,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 16:34:19.545 [pool-batch-consume-blocking-queue-thread-0] INFO  c.y.r.c.biz.consumer.CountNoteChildCommentConsumer - ==> 【笔记二级评论数】聚合消息, ["[{\"noteId\":1903422411647221784,\"commentId\":20035,\"level\":1,\"parentId\":1903422411647221784}]"]
+2025-03-23 16:34:19.550 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==>  Preparing: INSERT INTO t_note_count (note_id, comment_total) VALUES (?, ?) ON DUPLICATE KEY UPDATE comment_total = comment_total + (?);
+2025-03-23 16:34:19.550 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - ==> Parameters: 1903422411647221784(Long), 1(Integer), 1(Integer)
+2025-03-23 16:34:19.555 [pool-batch-consume-blocking-queue-thread-0] DEBUG c.y.r.c.b.d.m.N.insertOrUpdateCommentTotalByNoteId - <==    Updates: 2

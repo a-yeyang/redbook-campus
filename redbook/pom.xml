@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.yeyang</groupId>
+    <artifactId>redbook</artifactId>
+    <version>${revision}</version>
+
+    <!-- 项目名称 -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>redbook（仿小红书），基于 Spring Cloud Alibaba 微服务架构</description>
+
+    <!-- 多模块项目需要配置打包方式为 pom -->
+    <packaging>pom</packaging>
+
+    <!-- 子模块管理 -->
+    <modules>
+        <!-- 平台基础框架 -->
+        <module>red-framework</module>
+        <!-- Gateway 网关服务 -->
+        <module>redbook-gateway</module>
+        <!-- 认证服务 -->
+        <module>redbook-auth</module>
+        <!-- 对象存储服务 -->
+        <module>redbook-oss</module>
+        <!-- 用户服务 -->
+        <module>redbook-user</module>
+        <!-- KV 键值存储服务 -->
+        <module>redbook-kv</module>
+        <!-- 分布式 ID 生成服务 -->
+        <module>redbook-distributed-id-generator</module>
+        <!-- 笔记服务 -->
+        <module>redbook-note</module>
+        <!-- 用户关系服务 -->
+        <module>redbook-user-relation</module>
+        <!-- 计数服务 -->
+        <module>redbook-count</module>
+        <!-- 数据对齐服务 -->
+        <module>redbook-data-align</module>
+        <!-- 搜索服务 -->
+        <module>redbook-search</module>
+        <!-- 评论服务 -->
+        <module>redbook-comment</module>
+    </modules>
+
+    <properties>
+        <!-- 项目版本号 -->
+        <revision>0.0.1-SNAPSHOT</revision>
+        <!-- JDK 版本 -->
+        <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- 项目编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Maven 相关版本号 -->
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <mybatis-generator-maven-plugin.version>1.3.5</mybatis-generator-maven-plugin.version>
+        <flatten-maven-plugin.version>1.5.0</flatten-maven-plugin.version>
+
+        <!-- 依赖包版本 -->
+        <spring-boot.version>3.0.2</spring-boot.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+        <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <lombok.version>1.18.30</lombok.version>
+        <jackson.version>2.16.1</jackson.version>
+        <mysql-connector-java.version>8.0.29</mysql-connector-java.version>
+        <druid.version>1.2.23</druid.version>
+        <sa-token.version>1.38.0</sa-token.version>
+        <guava.version>33.0.0-jre</guava.version>
+        <hutool.version>5.8.26</hutool.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <dysmsapi.version>2.0.24</dysmsapi.version>
+        <nacos-config.version>0.3.0-RC</nacos-config.version>
+        <transmittable-thread-local.version>2.14.2</transmittable-thread-local.version>
+        <minio.version>8.2.1</minio.version>
+        <aliyun-sdk-oss.version>3.17.4</aliyun-sdk-oss.version>
+        <jaxb-api.version>2.3.1</jaxb-api.version>
+        <activation.version>1.1.1</activation.version>
+        <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
+        <feign-form.version>3.8.0</feign-form.version>
+        <caffeine.version>3.1.8</caffeine.version>
+        <rocketmq.version>2.2.3</rocketmq.version>
+        <rocketmq-client.version>4.9.4</rocketmq-client.version>
+        <buffertrigger.version>0.2.21</buffertrigger.version>
+        <xxl-job.version>2.4.1</xxl-job.version>
+        <elasticsearch.version>7.3.0</elasticsearch.version>
+        <canal.version>1.1.7</canal.version>
+    </properties>
+
+    <!-- 统一依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>red-common</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>redbook-oss-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>redbook-user-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>redbook-kv-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>redbook-search-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>redbook-distributed-id-generator-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 业务接口日志组件 -->
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>red-spring-boot-starter-biz-operationlog</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- Jackson 组件 -->
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>red-spring-boot-starter-jackson</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- 上下文组件 -->
+            <dependency>
+                <groupId>com.yeyang</groupId>
+                <artifactId>red-spring-boot-starter-biz-context</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <!-- Spring Boot 官方依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Alibaba 官方依赖管理 -->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud 官方依赖管理 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- 避免编写那些冗余的 Java 样板式代码，如 get、set 方法等 -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- Mybatis -->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- MySQL 驱动 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+
+            <!-- Druid 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-3-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 权限认证 -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-spring-boot3-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-reactor-spring-boot3-starter</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+            <dependency>
+                <groupId>cn.dev33</groupId>
+                <artifactId>sa-token-redis-jackson</artifactId>
+                <version>${sa-token.version}</version>
+            </dependency>
+
+            <!-- 相关工具类 -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <!-- 阿里云短信发送 -->
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>dysmsapi20170525</artifactId>
+                <version>${dysmsapi.version}</version>
+            </dependency>
+
+            <!-- Nacos 配置中心 -->
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>${nacos-config.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <!-- 对象存储 Minio -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+
+            <!-- 阿里云 OSS -->
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>${activation.version}</version>
+            </dependency>
+            <!-- no more than 2.3.3-->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${jaxb-runtime.version}</version>
+            </dependency>
+
+            <!-- Feign 表单提交 -->
+            <dependency>
+                <groupId>io.github.openfeign.form</groupId>
+                <artifactId>feign-form</artifactId>
+                <version>${feign-form.version}</version>
+            </dependency>
+
+            <!-- Caffeine 本地缓存 -->
+            <dependency>
+                <groupId>com.github.ben-manes.caffeine</groupId>
+                <artifactId>caffeine</artifactId>
+                <version>${caffeine.version}</version>
+            </dependency>
+
+            <!-- Rocket MQ -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
+            </dependency>
+            <!-- Rocket MQ 客户端 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-client</artifactId>
+                <version>${rocketmq-client.version}</version>
+            </dependency>
+
+            <!-- 快手 Buffer Trigger -->
+            <dependency>
+                <groupId>com.github.phantomthief</groupId>
+                <artifactId>buffer-trigger</artifactId>
+                <version>${buffertrigger.version}</version>
+            </dependency>
+
+            <!-- XXL-JOB 分布式定时任务调度 -->
+            <dependency>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${xxl-job.version}</version>
+            </dependency>
+
+            <!-- Elasticsearch 分布式搜索引擎 -->
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
+            <!-- Canal -->
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.client</artifactId>
+                <version>${canal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.common</artifactId>
+                <version>${canal.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.otter</groupId>
+                <artifactId>canal.protocol</artifactId>
+                <version>${canal.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <!-- 统一插件管理 -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <executions>
+                        <execution>
+                            <id>repackage</id>
+                            <goals>
+                                <goal>repackage</goal> <!-- 将依赖的 Jar 一起打包 -->
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${lombok.version}</version>
+                            </path>
+                        </annotationProcessorPaths>
+                    </configuration>
+                </plugin>
+
+                <!-- 代码生成器 -->
+                <plugin>
+                    <groupId>org.mybatis.generator</groupId>
+                    <artifactId>mybatis-generator-maven-plugin</artifactId>
+                    <version>${mybatis-generator-maven-plugin.version}</version>
+                    <configuration>
+                        <!-- 允许移动生成的文件 -->
+                        <verbose>true</verbose>
+                        <!-- 允许覆盖生成的文件 -->
+                        <overwrite>true</overwrite>
+                    </configuration>
+                    <!-- 此插件需要连接数据库，所以需要依赖 MySQL 驱动 -->
+                    <dependencies>
+                        <dependency>
+                            <groupId>mysql</groupId>
+                            <artifactId>mysql-connector-java</artifactId>
+                            <version>${mysql-connector-java.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <!-- 统一 revision 版本, 解决子模块打包无法解析 ${revision} 版本号问题 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <configuration>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <updatePomFile>true</updatePomFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- 添加华为云、阿里云 maven 中央仓库，提升 Jar 包下载速度 -->
+    <repositories>
+        <repository>
+            <id>huaweicloud</id>
+            <name>huawei</name>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+        <repository>
+            <id>aliyunmaven</id>
+            <name>aliyun</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+    </repositories>
+
+</project>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Annotation profile for redbook" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar" />
+        </processorPath>
+        <module name="red-spring-boot-starter-biz-context" />
+        <module name="redbook-user-biz" />
+        <module name="red-common" />
+        <module name="redbook-kv-api" />
+        <module name="redbook-kv-biz" />
+        <module name="redbook-data-align" />
+        <module name="redbook-note-biz" />
+        <module name="redbook-user-api" />
+        <module name="redbook-oss-biz" />
+        <module name="redbook-note-api" />
+        <module name="red-spring-boot-starter-biz-operationlog" />
+        <module name="redbook-search-biz" />
+        <module name="redbook-oss-api" />
+        <module name="redbook-search-api" />
+        <module name="redbook-distributed-id-generator-biz" />
+        <module name="redbook-gateway" />
+        <module name="redbook-comment-api" />
+        <module name="redbook-user-relation-biz" />
+        <module name="redbook-count-biz" />
+        <module name="redbook-comment-biz" />
+        <module name="redbook-count-api" />
+        <module name="redbook-user-relation-api" />
+        <module name="redbook-distributed-id-generator-api" />
+        <module name="red-spring-boot-starter-jackson" />
+        <module name="redbook-auth" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="xiaohashu" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

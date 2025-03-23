@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.yeyang</groupId>
+    <artifactId>redbook-kv</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.yeyang</groupId>
+  <artifactId>redbook-kv-biz</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>${project.artifactId}</name>
+  <description>Key-Value 键值存储业务层</description>
+  <dependencies>
+    <dependency>
+      <groupId>com.yeyang</groupId>
+      <artifactId>red-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.yeyang</groupId>
+      <artifactId>redbook-kv-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.yeyang</groupId>
+      <artifactId>red-spring-boot-starter-biz-operationlog</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.yeyang</groupId>
+      <artifactId>red-spring-boot-starter-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bootstrap</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.alibaba.cloud</groupId>
+      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-cassandra</artifactId>
+    </dependency>
+  </dependencies>
+</project>

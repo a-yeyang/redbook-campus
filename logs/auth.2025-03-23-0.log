@@ -1,0 +1,50 @@
+2025-03-23 12:34:43.902 [http-nio-8080-exec-4] INFO  org.apache.coyote.http11.Http11Processor - Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in method name [PING0x0d0x0a...]. HTTP method names must be tokens
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:419)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:272)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.707 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52397] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.749 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52397] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:29:05.765 [RMI TCP Accept-0] WARN  sun.rmi.transport.tcp - RMI TCP Accept-0: accept loop for ServerSocket[addr=0.0.0.0/0.0.0.0,localport=52397] throws
+java.io.IOException: The server sockets created using the LocalRMIServerSocketFactory only accept connections from clients running on the host where the RMI remote objects have been exported.
+	at jdk.management.agent/sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:114)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:413)
+	at java.rmi/sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:377)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+2025-03-23 14:51:19.915 [http-nio-8080-exec-5] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 设置 userId 到 ThreadLocal 中， 用户 ID: 8100
+2025-03-23 14:51:19.918 [http-nio-8080-exec-5] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [账号登出], 入参: , 请求类: AuthController, 请求方法: logout =================================== 
+2025-03-23 14:51:19.929 [http-nio-8080-exec-5] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [账号登出], 耗时: 11ms, 出参: {"success":true,"message":null,"errorCode":null,"data":null} =================================== 
+2025-03-23 14:51:19.933 [http-nio-8080-exec-5] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 删除 ThreadLocal， userId: 8100
+2025-03-23 14:52:03.372 [http-nio-8080-exec-6] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [用户登录/注册], 入参: {"email":"chinaanhuicsy@icloud.com","code":"747987","password":null,"type":1}, 请求类: AuthController, 请求方法: loginAndRegister =================================== 
+2025-03-23 14:52:03.375 [http-nio-8080-exec-6] WARN  c.y.redbook.auth.exception.GlobalExceptionHandler - /login request fail, errorCode: AUTH-20001, errorMessage: 验证码错误
+2025-03-23 14:52:15.294 [http-nio-8080-exec-2] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [发送邮箱验证码], 入参: {"email":"chinaanhuicsy@icloud.com"}, 请求类: VerificationCodeController, 请求方法: send =================================== 
+2025-03-23 14:52:15.296 [http-nio-8080-exec-2] INFO  c.y.r.a.service.impl.VerificationCodeServiceImpl - ==> 邮箱号: chinaanhuicsy@icloud.com, 已生成验证码：【686083】
+2025-03-23 14:52:15.298 [http-nio-8080-exec-2] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [发送邮箱验证码], 耗时: 4ms, 出参: {"success":true,"message":null,"errorCode":null,"data":null} =================================== 
+2025-03-23 14:52:54.755 [http-nio-8080-exec-8] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [用户登录/注册], 入参: {"email":"chinaanhuicsy@icloud.com","code":"686083","password":null,"type":1}, 请求类: AuthController, 请求方法: loginAndRegister =================================== 
+2025-03-23 14:52:54.801 [http-nio-8080-exec-8] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [用户登录/注册], 耗时: 47ms, 出参: {"success":true,"message":null,"errorCode":null,"data":"XWU3cvAFJqeRlRkbx2AflmnBqyHq4yuopg4EbsDjj3V0Yj15wyBmXzPyYUZPrkdfbEgugR7E46Ry2douUIWGOqUcWa6c4epDLWcTVbmxzvrjZYH6NfdI294sFXr183YG"} =================================== 
+2025-03-23 15:54:14.793 [http-nio-8080-exec-10] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [用户登录/注册], 入参: {"email":"chinaanhuicsy@icloud.com","code":"686083","password":null,"type":1}, 请求类: AuthController, 请求方法: loginAndRegister =================================== 
+2025-03-23 15:54:14.842 [http-nio-8080-exec-10] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [用户登录/注册], 耗时: 50ms, 出参: {"success":true,"message":null,"errorCode":null,"data":"XWU3cvAFJqeRlRkbx2AflmnBqyHq4yuopg4EbsDjj3V0Yj15wyBmXzPyYUZPrkdfbEgugR7E46Ry2douUIWGOqUcWa6c4epDLWcTVbmxzvrjZYH6NfdI294sFXr183YG"} =================================== 
+2025-03-23 16:20:48.993 [http-nio-8080-exec-7] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [用户登录/注册], 入参: {"email":"chinaanhuicsy@icloud.com","code":"686083","password":null,"type":1}, 请求类: AuthController, 请求方法: loginAndRegister =================================== 
+2025-03-23 16:20:49.020 [http-nio-8080-exec-7] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [用户登录/注册], 耗时: 28ms, 出参: {"success":true,"message":null,"errorCode":null,"data":"XWU3cvAFJqeRlRkbx2AflmnBqyHq4yuopg4EbsDjj3V0Yj15wyBmXzPyYUZPrkdfbEgugR7E46Ry2douUIWGOqUcWa6c4epDLWcTVbmxzvrjZYH6NfdI294sFXr183YG"} =================================== 
+2025-03-23 19:32:52.280 [http-nio-8080-exec-4] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 设置 userId 到 ThreadLocal 中， 用户 ID: 6101
+2025-03-23 19:32:52.285 [http-nio-8080-exec-4] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求开始: [账号登出], 入参: , 请求类: AuthController, 请求方法: logout =================================== 
+2025-03-23 19:32:52.295 [http-nio-8080-exec-4] INFO  c.y.f.b.operationlog.aspect.ApiOperationLogAspect - ====== 请求结束: [账号登出], 耗时: 11ms, 出参: {"success":true,"message":null,"errorCode":null,"data":null} =================================== 
+2025-03-23 19:32:52.301 [http-nio-8080-exec-4] INFO  c.y.f.b.context.filter.HeaderUserId2ContextFilter - ===== 删除 ThreadLocal， userId: 6101

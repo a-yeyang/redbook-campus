@@ -1,0 +1,2 @@
+com.yeyang.framework.biz.context.config.ContextAutoConfiguration
+com.yeyang.framework.biz.context.config.FeignContextAutoConfiguration

@@ -1,0 +1,12 @@
+spring:
+  cassandra:
+    keyspace-name: redbook
+    contact-points: localhost
+    port: 9042
+#    schema-action: none
+
+
+
+
+
+
