@@ -1,0 +1,33 @@
+server:
+  port: 8081
+
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  is-read-cookie: false
+
+alarm:
+  type: ${REDBOOK_ALARM_TYPE:mail}
+
+spring:
+  data:
+    redis:
+      host: ${REDBOOK_REDIS_HOST:127.0.0.1}
+      port: ${REDBOOK_REDIS_PORT:6379}
+  mail:
+    host: ${REDBOOK_MAIL_HOST:smtp.qq.com}
+    port: ${REDBOOK_MAIL_PORT:465}
+    username: ${REDBOOK_MAIL_USERNAME:redbook-campus@qq.com}
+    password: ${REDBOOK_MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}

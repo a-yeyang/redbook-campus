@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 指定父项目 -->
+    <parent>
+        <groupId>com.yeyang</groupId>
+        <artifactId>redbook</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 多模块项目需要配置打包方式为 pom -->
+    <packaging>pom</packaging>
+
+    <artifactId>red-framework</artifactId>
+    <name>${project.artifactId}</name>
+    <description>平台基础框架：封装一些常用功能，供各个业务线拿来即用</description>
+
+    <modules>
+        <!-- 通用工具模块 -->
+        <module>red-common</module>
+        <!-- 接口日志组件 -->
+        <module>red-spring-boot-starter-biz-operationlog</module>
+        <!-- Jackson 组件 -->
+        <module>red-spring-boot-starter-jackson</module>
+        <!-- 业务上下文组件 -->
+        <module>red-spring-boot-starter-biz-context</module>
+    </modules>
+
+</project>

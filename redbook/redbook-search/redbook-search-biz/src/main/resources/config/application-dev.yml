@@ -1,0 +1,31 @@
+server:
+  port: 8089
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${REDBOOK_MYSQL_HOST:127.0.0.1}:${REDBOOK_MYSQL_PORT:3306}/redbook_app?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${REDBOOK_MYSQL_USERNAME:root}
+    password: ${REDBOOK_MYSQL_PASSWORD:redbook123}
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+
+elasticsearch:
+  address: ${REDBOOK_ELASTICSEARCH_ADDRESS:127.0.0.1:9200}
+  hotUpdateExtDict: ${REDBOOK_EXT_DICT_PATH:E:/JavaLearning/redbook-campus/redbook/deploy/search/ext-dict.txt}
+
+canal:
+  enabled: false
+  address: ${REDBOOK_CANAL_ADDRESS:127.0.0.1:11111}
+  destination: example
+  username:
+  password:
+  subscribe: redbook_app.t_note,redbook_app.t_user
+  batch-size: 1000

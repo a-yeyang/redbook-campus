@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: redbook-gateway # 应用名称
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      discovery:
+        enabled: true # 启用服务发现
+        group: DEFAULT_GROUP # 所属组
+        namespace: redbook # 命名空间
+        server-addr: 127.0.0.1:8848 # Nacos 服务器地址

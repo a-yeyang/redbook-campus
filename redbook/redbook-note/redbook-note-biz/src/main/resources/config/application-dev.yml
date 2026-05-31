@@ -1,0 +1,36 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${REDBOOK_MYSQL_HOST:127.0.0.1}:${REDBOOK_MYSQL_PORT:3306}/redbook_app?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${REDBOOK_MYSQL_USERNAME:root}
+    password: ${REDBOOK_MYSQL_PASSWORD:redbook123}
+  data:
+    redis:
+      host: ${REDBOOK_REDIS_HOST:127.0.0.1}
+      port: ${REDBOOK_REDIS_PORT:6379}
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}
+    openfeign:
+      client:
+        config:
+          redbook-distributed-id-generator:
+            url: ${REDBOOK_ID_SERVICE_URL:http://127.0.0.1:8085}
+          redbook-kv:
+            url: ${REDBOOK_KV_SERVICE_URL:http://127.0.0.1:8084}
+          redbook-user:
+            url: ${REDBOOK_USER_SERVICE_URL:http://127.0.0.1:8082}
+          redbook-count:
+            url: ${REDBOOK_COUNT_SERVICE_URL:http://127.0.0.1:8087}
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+
+rocketmq:
+  name-server: ${REDBOOK_ROCKETMQ_NAME_SERVER:127.0.0.1:9876}
+  producer:
+    group: ${REDBOOK_ROCKETMQ_PRODUCER_GROUP:redbook-local-producer}

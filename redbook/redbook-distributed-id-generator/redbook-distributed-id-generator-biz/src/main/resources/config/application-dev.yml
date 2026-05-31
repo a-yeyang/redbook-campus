@@ -1,0 +1,8 @@
+server:
+  port: 8085
+
+spring:
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}

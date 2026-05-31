@@ -1,0 +1,21 @@
+﻿# IDE & System Files
+.idea/
+*.iml
+.DS_Store
+
+# Logs (忽略所有层级下的 logs 文件夹和 .log 文件)
+**/logs/
+*.log
+**/*.log
+
+# Spring Boot Configs (忽略所有子项目下的配置文件)
+**/application.yml
+**/application-dev.yml
+**/application-prod.yml
+**/application.properties
+**/application-dev.properties
+
+# Build & Dependencies
+**/target/
+**/node_modules/
+.flattened-pom.xml

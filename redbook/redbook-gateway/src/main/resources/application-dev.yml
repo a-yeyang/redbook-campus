@@ -1,0 +1,118 @@
+server:
+  port: 8000
+
+sa-token:
+  token-name: Authorization
+  token-prefix: Bearer
+  is-read-cookie: false
+
+spring:
+  data:
+    redis:
+      host: ${REDBOOK_REDIS_HOST:127.0.0.1}
+      port: ${REDBOOK_REDIS_PORT:6379}
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origin-patterns:
+              - "http://localhost:*"
+              - "http://127.0.0.1:*"
+            allowed-methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowed-headers:
+              - "*"
+            exposed-headers:
+              - Authorization
+            allow-credentials: true
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      routes:
+        - id: redbook-auth
+          uri: http://127.0.0.1:8081
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-oss
+          uri: http://127.0.0.1:8083
+          predicates:
+            - Path=/oss/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-user-prefixed
+          uri: http://127.0.0.1:8082
+          predicates:
+            - Path=/user/user/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-user
+          uri: http://127.0.0.1:8082
+          predicates:
+            - Path=/user/**
+        - id: redbook-kv-prefixed
+          uri: http://127.0.0.1:8084
+          predicates:
+            - Path=/kv/kv/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-kv
+          uri: http://127.0.0.1:8084
+          predicates:
+            - Path=/kv/**
+        - id: redbook-note
+          uri: http://127.0.0.1:8086
+          predicates:
+            - Path=/note/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-count-prefixed
+          uri: http://127.0.0.1:8087
+          predicates:
+            - Path=/count/count/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-count
+          uri: http://127.0.0.1:8087
+          predicates:
+            - Path=/count/**
+        - id: redbook-comment-prefixed
+          uri: http://127.0.0.1:8088
+          predicates:
+            - Path=/comment/comment/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-comment
+          uri: http://127.0.0.1:8088
+          predicates:
+            - Path=/comment/**
+        - id: redbook-search-prefixed
+          uri: http://127.0.0.1:8089
+          predicates:
+            - Path=/search/search/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-search
+          uri: http://127.0.0.1:8089
+          predicates:
+            - Path=/search/**
+        - id: redbook-relation-prefixed
+          uri: http://127.0.0.1:8090
+          predicates:
+            - Path=/relation/relation/**
+          filters:
+            - StripPrefix=1
+        - id: redbook-relation
+          uri: http://127.0.0.1:8090
+          predicates:
+            - Path=/relation/**

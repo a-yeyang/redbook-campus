@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+  cloud:
+    nacos:
+      config:
+        enabled: false
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}
+
+storage:
+  type: minio
+  minio:
+    endpoint: ${REDBOOK_MINIO_ENDPOINT:http://127.0.0.1:9000}
+    access-key: ${REDBOOK_MINIO_ACCESS_KEY:redbookminio}
+    secret-key: ${REDBOOK_MINIO_SECRET_KEY:redbookminio123}

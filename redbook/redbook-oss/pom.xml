@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- 指定父项目 -->
+    <parent>
+        <groupId>com.yeyang</groupId>
+        <artifactId>redbook</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <!-- 多模块项目需要配置打包方式为 pom -->
+    <packaging>pom</packaging>
+
+    <!-- 子模块管理 -->
+    <modules>
+        <module>redbook-oss-api</module>
+        <module>redbook-oss-biz</module>
+    </modules>
+
+    <artifactId>redbook-oss</artifactId>
+    <!-- 项目名称 -->
+    <name>${project.artifactId}</name>
+    <!-- 项目描述 -->
+    <description>对象存储服务</description>
+
+</project>

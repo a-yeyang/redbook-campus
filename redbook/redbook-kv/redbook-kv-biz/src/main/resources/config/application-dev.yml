@@ -1,0 +1,13 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${REDBOOK_MYSQL_HOST:127.0.0.1}:${REDBOOK_MYSQL_PORT:3306}/redbook_kv?useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${REDBOOK_MYSQL_USERNAME:root}
+    password: ${REDBOOK_MYSQL_PASSWORD:redbook123}
+  cloud:
+    nacos:
+      discovery:
+        enabled: ${REDBOOK_NACOS_ENABLED:false}
