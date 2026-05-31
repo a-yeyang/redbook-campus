@@ -1,20 +1,10 @@
 :root {
-  --color-background: #f6f8fb;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f0f5f7;
-  --color-border: #dfe6ee;
-  --color-border-strong: #cbd5df;
-  --color-heading: #17202b;
-  --color-text: #2f3b4a;
-  --color-muted: #69778a;
-  --color-primary: #df3f52;
-  --color-primary-strong: #bd2f40;
-  --color-primary-soft: #fde8eb;
-  --color-accent: #138575;
-  --color-accent-soft: #e2f4f0;
-  --color-warm: #f4b23f;
-  --shadow-soft: 0 18px 50px rgba(23, 32, 43, 0.08);
-  --shadow-card: 0 10px 30px rgba(23, 32, 43, 0.07);
+  --xhs-red: #ff2442;
+  --xhs-red-dark: #e60033;
+  --xhs-text: #111111;
+  --xhs-muted: #777777;
+  --xhs-soft: #f7f7f7;
+  --xhs-line: #eeeeee;
 }
 
 *,
@@ -26,9 +16,8 @@
 
 body {
   min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  line-height: 1.6;
+  color: var(--xhs-text);
+  background: #ffffff;
   font-family:
     Inter,
     -apple-system,
@@ -38,11 +27,11 @@ body {
     Oxygen,
     Ubuntu,
     Cantarell,
-    'Fira Sans',
-    'Droid Sans',
     'Helvetica Neue',
+    Arial,
     sans-serif;
   font-size: 15px;
+  line-height: 1.5;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -50,7 +39,8 @@ body {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
 }
 

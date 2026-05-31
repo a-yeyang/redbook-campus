@@ -9,8 +9,8 @@ import {
   getCurrentProfile,
   getFeed,
   getFollowingList,
-  getNoteInteractionState,
   getNoteDetail,
+  getNoteInteractionState,
   likeNote,
   publishComment,
   publishNote,
@@ -31,7 +31,8 @@ import {
 
 const token = ref(localStorage.getItem('authToken') || '')
 const channels = ref<Channel[]>([])
-const selectedChannelId = ref<number | null>(1)
+const selectedChannelId = ref<number | null>(null)
+const activeTopic = ref('推荐')
 const feed = ref<FeedNote[]>([])
 const comments = ref<CommentItem[]>([])
 const activeNote = ref<FeedNote | null>(null)
@@ -45,6 +46,7 @@ const userSearchResults = ref<SearchUserItem[]>([])
 const followingIds = ref<Set<number>>(new Set())
 const activeLiked = ref(false)
 const activeFollowing = ref(false)
+const composerOpen = ref(false)
 
 const loadingFeed = ref(false)
 const loadingDetail = ref(false)
@@ -64,7 +66,7 @@ const successMessage = ref('')
 
 const title = ref('')
 const content = ref('')
-const topicInput = ref('校园,生活')
+const topicInput = ref('AI科研,顶会论文,论文速读')
 const imageFile = ref<File | null>(null)
 const imagePreview = ref('')
 const imageUrlInput = ref('')
@@ -72,7 +74,18 @@ const commentText = ref('')
 
 let feedbackTimer: number | null = null
 
+const editorialTopics = ['推荐', '论文速读', '多模态', 'Agent', '具身智能', 'AI4Science', '工程复现', '科研日常', '工具流', '数据集']
+
 const isLoggedIn = computed(() => Boolean(token.value))
+const normalizedSearchKeyword = computed(() => searchKeyword.value.trim())
+const isSearchingNotes = computed(() => Boolean(normalizedSearchKeyword.value) && searchMode.value === 'note')
+const visibleFeed = computed(() => (isSearchingNotes.value ? noteSearchResults.value : feed.value))
+const currentName = computed(() => currentProfile.value?.nickname || '科研同学')
+const currentInitial = computed(() => currentName.value.slice(0, 1))
+const activeCreatorId = computed(() => activeDetail.value?.creatorId || activeNote.value?.creatorId || null)
+const canFollowActiveCreator = computed(() =>
+  Boolean(activeCreatorId.value && currentUserId.value && activeCreatorId.value !== currentUserId.value),
+)
 
 const topicList = computed(() =>
   topicInput.value
@@ -83,23 +96,10 @@ const topicList = computed(() =>
 
 const imageSource = computed(() => imagePreview.value || imageUrlInput.value.trim())
 
-const normalizedSearchKeyword = computed(() => searchKeyword.value.trim())
-
-const isSearchingNotes = computed(() => Boolean(normalizedSearchKeyword.value) && searchMode.value === 'note')
-
-const visibleFeed = computed(() => (isSearchingNotes.value ? noteSearchResults.value : feed.value))
-
-const selectedChannelName = computed(() => {
-  return channels.value.find((channel) => channel.id === selectedChannelId.value)?.name || '全部'
-})
-
 const detailImages = computed(() => {
   const images = activeDetail.value?.imgUris
 
-  if (Array.isArray(images)) {
-    return images.filter(Boolean)
-  }
-
+  if (Array.isArray(images)) return images.filter(Boolean)
   if (typeof images === 'string') {
     return images
       .split(',')
@@ -110,22 +110,27 @@ const detailImages = computed(() => {
   return activeNote.value?.cover ? [activeNote.value.cover] : []
 })
 
-const feedStats = computed(() => {
-  const likeTotal = visibleFeed.value.reduce((total, note) => total + Number(note.likeTotal || 0), 0)
-  return {
-    noteTotal: visibleFeed.value.length,
-    likeTotal,
-  }
-})
+const channelTabs = computed(() => [
+  { id: null as number | null, name: '推荐' },
+  ...channels.value.map((channel) => ({
+    id: channel.id,
+    name:
+      channel.name === 'campus'
+        ? '校园'
+        : channel.name === 'study'
+          ? '学习'
+          : channel.name === 'life'
+            ? '生活'
+            : channel.name,
+  })),
+])
 
-const activeCreatorId = computed(() => activeDetail.value?.creatorId || activeNote.value?.creatorId || null)
+const feedStats = computed(() => ({
+  noteTotal: visibleFeed.value.length,
+  likeTotal: visibleFeed.value.reduce((total, note) => total + Number(note.likeTotal || 0), 0),
+}))
 
-const canFollowActiveCreator = computed(() => {
-  return Boolean(activeCreatorId.value && currentUserId.value && activeCreatorId.value !== currentUserId.value)
-})
-
-const getDisplayName = (nickname?: string) => nickname || '校园用户'
-
+const getDisplayName = (nickname?: string) => nickname || '小红薯'
 const toNumber = (value: string | number | undefined) => Number(value || 0)
 
 const setFollowingIds = (users: FollowingUserItem[]) => {
@@ -168,9 +173,7 @@ const readError = (error: unknown, fallback: string) => {
 }
 
 const showMessage = (type: 'success' | 'error', message: string) => {
-  if (feedbackTimer) {
-    window.clearTimeout(feedbackTimer)
-  }
+  if (feedbackTimer) window.clearTimeout(feedbackTimer)
 
   successMessage.value = type === 'success' ? message : ''
   errorMessage.value = type === 'error' ? message : ''
@@ -184,10 +187,6 @@ const showMessage = (type: 'success' | 'error', message: string) => {
 
 const loadChannels = async () => {
   channels.value = await getChannels()
-
-  if (!selectedChannelId.value && channels.value.length > 0) {
-    selectedChannelId.value = channels.value[0].id
-  }
 }
 
 const loadCurrentUser = async () => {
@@ -226,11 +225,9 @@ const loadFeed = async () => {
   loadingFeed.value = true
 
   try {
-    const response = await getFeed(selectedChannelId.value, 1)
-    feed.value = response.data || []
-    if (!normalizedSearchKeyword.value) {
-      noteSearchResults.value = []
-    }
+    const pages = await Promise.all([1, 2, 3, 4, 5].map((pageNo) => getFeed(selectedChannelId.value, pageNo)))
+    feed.value = pages.flatMap((page) => page.data || [])
+    if (!normalizedSearchKeyword.value) noteSearchResults.value = []
   } catch (error) {
     showMessage('error', readError(error, '信息流加载失败'))
   } finally {
@@ -272,28 +269,53 @@ const clearSearch = async () => {
   await loadFeed()
 }
 
-const selectChannel = async (channelId: number | null) => {
+const selectChannel = async (channelId: number | null, label: string) => {
   selectedChannelId.value = channelId
+  activeTopic.value = label
   searchKeyword.value = ''
   noteSearchResults.value = []
   userSearchResults.value = []
   await loadFeed()
 }
 
+const selectEditorialTopic = async (topic: string) => {
+  activeTopic.value = topic
+  selectedChannelId.value = null
+  searchKeyword.value = ''
+  noteSearchResults.value = []
+  userSearchResults.value = []
+  await loadFeed()
+}
+
+const openComposer = () => {
+  if (!isLoggedIn.value) {
+    showMessage('error', '请先登录')
+    return
+  }
+
+  composerOpen.value = true
+}
+
+const closeComposer = () => {
+  if (!publishing.value) composerOpen.value = false
+}
+
+const handleHashIntent = () => {
+  if (window.location.hash === '#publish') {
+    openComposer()
+    history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+  }
+}
+
 const onImageChange = (event: Event) => {
   const input = event.target as HTMLInputElement
   const file = input.files?.[0] || null
 
-  if (imagePreview.value) {
-    URL.revokeObjectURL(imagePreview.value)
-  }
-
+  if (imagePreview.value) URL.revokeObjectURL(imagePreview.value)
   imageFile.value = file
   imagePreview.value = file ? URL.createObjectURL(file) : ''
 
-  if (file) {
-    imageUrlInput.value = ''
-  }
+  if (file) imageUrlInput.value = ''
 }
 
 const resetPublisher = () => {
@@ -302,10 +324,7 @@ const resetPublisher = () => {
   imageFile.value = null
   imageUrlInput.value = ''
 
-  if (imagePreview.value) {
-    URL.revokeObjectURL(imagePreview.value)
-  }
-
+  if (imagePreview.value) URL.revokeObjectURL(imagePreview.value)
   imagePreview.value = ''
 }
 
@@ -341,6 +360,7 @@ const submitPost = async () => {
 
     showMessage('success', '发布成功，信息流已刷新')
     resetPublisher()
+    composerOpen.value = false
     await loadFeed()
   } catch (error) {
     showMessage('error', readError(error, '发布失败'))
@@ -536,11 +556,13 @@ const syncTokenState = () => {
 onMounted(async () => {
   window.addEventListener('auth-token-updated', syncTokenState)
   window.addEventListener('storage', syncTokenState)
+  window.addEventListener('hashchange', handleHashIntent)
 
   try {
     await loadChannels()
     await loadCurrentUser()
     await loadFeed()
+    handleHashIntent()
   } catch (error) {
     showMessage('error', readError(error, '初始化失败'))
   }
@@ -549,892 +571,823 @@ onMounted(async () => {
 onUnmounted(() => {
   window.removeEventListener('auth-token-updated', syncTokenState)
   window.removeEventListener('storage', syncTokenState)
+  window.removeEventListener('hashchange', handleHashIntent)
 
-  if (feedbackTimer) {
-    window.clearTimeout(feedbackTimer)
-  }
-
-  if (imagePreview.value) {
-    URL.revokeObjectURL(imagePreview.value)
-  }
+  if (feedbackTimer) window.clearTimeout(feedbackTimer)
+  if (imagePreview.value) URL.revokeObjectURL(imagePreview.value)
 })
 </script>
 
 <template>
-  <main class="redbook-home">
-    <section class="home-head">
-      <div>
-        <p class="eyebrow">Campus Feed</p>
-        <h1>校园发现</h1>
-        <span>{{ selectedChannelName }}频道 · {{ isLoggedIn ? '登录态可用' : '未登录' }}</span>
+  <section class="discover-page">
+    <header class="discover-header">
+      <form class="search-bar" @submit.prevent="runSearch">
+        <div class="search-tabs">
+          <button type="button" :class="{ active: searchMode === 'note' }" @click="searchMode = 'note'">笔记</button>
+          <button type="button" :class="{ active: searchMode === 'user' }" @click="searchMode = 'user'">用户</button>
+        </div>
+        <input v-model.trim="searchKeyword" type="search" placeholder="搜索探索更多内容" />
+        <button type="submit" aria-label="搜索">⌕</button>
+        <button v-if="normalizedSearchKeyword" type="button" class="clear-button" @click="clearSearch">清空</button>
+      </form>
+
+      <div class="header-links">
+        <a href="/#creator">创作中心</a>
+        <a href="/#business">业务合作</a>
+        <button type="button" class="publish-button" @click="openComposer">发布</button>
       </div>
+    </header>
 
-      <div class="head-stats" aria-label="当前信息流统计">
-        <strong>{{ feedStats.noteTotal }}</strong>
-        <span>篇内容</span>
-        <strong>{{ feedStats.likeTotal }}</strong>
-        <span>次点赞</span>
-      </div>
-    </section>
+    <nav class="channel-tabs" aria-label="频道">
+      <button
+        v-for="tab in channelTabs"
+        :key="tab.name"
+        type="button"
+        :class="{ active: selectedChannelId === tab.id && activeTopic === tab.name }"
+        @click="selectChannel(tab.id, tab.name)"
+      >
+        {{ tab.name }}
+      </button>
+      <button
+        v-for="topic in editorialTopics.slice(1)"
+        :key="topic"
+        type="button"
+        :class="{ active: activeTopic === topic }"
+        @click="selectEditorialTopic(topic)"
+      >
+        {{ topic }}
+      </button>
+    </nav>
 
-    <section class="workspace">
-      <aside id="publish" class="publisher" data-testid="publish-form">
-        <div class="panel-title">
-          <div>
-            <span>发布工具</span>
-            <h2>新建图文</h2>
-          </div>
-          <strong>{{ selectedChannelName }}</strong>
+    <p v-if="errorMessage" class="toast error">{{ errorMessage }}</p>
+    <p v-else-if="successMessage" class="toast success">{{ successMessage }}</p>
+
+    <section v-if="searchMode === 'user' && normalizedSearchKeyword" class="user-results">
+      <div v-if="searching" class="empty-state">搜索中...</div>
+      <div v-else-if="userSearchResults.length === 0" class="empty-state">没有找到相关用户</div>
+      <article v-for="user in userSearchResults" v-else :key="user.userId" class="user-card">
+        <span class="avatar">{{ getDisplayName(user.nickname).slice(0, 1) }}</span>
+        <div>
+          <strong>{{ getDisplayName(user.nickname) }}</strong>
+          <p>小红书号 {{ user.redbookId || user.userId }} · {{ user.noteTotal || 0 }} 篇笔记</p>
         </div>
-
-        <label class="field">
-          <span>标题</span>
-          <input v-model.trim="title" data-testid="post-title" type="text" placeholder="例如：图书馆晚霞" />
-        </label>
-
-        <label class="field">
-          <span>正文</span>
-          <textarea
-            v-model.trim="content"
-            data-testid="post-content"
-            rows="5"
-            placeholder="记录今天值得分享的一刻"
-          />
-        </label>
-
-        <div class="field-row">
-          <label class="field">
-            <span>频道</span>
-            <select v-model.number="selectedChannelId" data-testid="post-channel">
-              <option v-for="channel in channels" :key="channel.id" :value="channel.id">
-                {{ channel.name }}
-              </option>
-            </select>
-          </label>
-
-          <label class="field">
-            <span>话题</span>
-            <input v-model.trim="topicInput" data-testid="post-topics" type="text" placeholder="校园,生活" />
-          </label>
-        </div>
-
-        <label class="upload-box" :class="{ filled: imageSource }">
-          <input data-testid="post-file" type="file" accept="image/*" @change="onImageChange" />
-          <img v-if="imageSource" :src="imageSource" alt="待发布图片预览" />
-          <span v-else>选择图片</span>
-        </label>
-
-        <label class="field compact">
-          <span>图片地址</span>
-          <input v-model.trim="imageUrlInput" data-testid="post-image-url" type="url" placeholder="https://..." />
-        </label>
-
-        <div class="topic-preview" aria-label="话题预览">
-          <span v-for="topic in topicList" :key="topic">#{{ topic }}</span>
-        </div>
-
-        <button class="primary-action" type="button" :disabled="publishing" @click="submitPost">
-          {{ publishing ? '发布中...' : '发布图文' }}
+        <button
+          type="button"
+          :disabled="loadingProfile || !currentUserId || currentUserId === user.userId || togglingFollowId === user.userId"
+          @click="toggleFollow(user.userId)"
+        >
+          {{ currentUserId === user.userId ? '自己' : isFollowing(user.userId) ? '已关注' : '关注' }}
         </button>
-      </aside>
-
-      <section class="feed-surface">
-        <div class="feed-toolbar">
-          <div>
-            <p class="eyebrow">Discover</p>
-            <h2>{{ normalizedSearchKeyword ? '搜索结果' : '最新动态' }}</h2>
-          </div>
-
-          <button type="button" class="ghost-action" :disabled="loadingFeed" @click="loadFeed">
-            {{ loadingFeed ? '刷新中...' : '刷新' }}
-          </button>
-        </div>
-
-        <div class="search-bar" role="search">
-          <div class="segmented-control" aria-label="搜索类型">
-            <button type="button" :class="{ active: searchMode === 'note' }" @click="searchMode = 'note'">笔记</button>
-            <button type="button" :class="{ active: searchMode === 'user' }" @click="searchMode = 'user'">用户</button>
-          </div>
-          <input
-            v-model.trim="searchKeyword"
-            data-testid="search-input"
-            type="search"
-            placeholder="搜索标题、内容或小红书号"
-            @keyup.enter="runSearch"
-          />
-          <button type="button" class="primary-action compact" :disabled="searching" @click="runSearch">
-            {{ searching ? '搜索中...' : '搜索' }}
-          </button>
-          <button v-if="normalizedSearchKeyword" type="button" class="ghost-action compact" @click="clearSearch">清空</button>
-        </div>
-
-        <div class="channel-tabs" role="tablist" aria-label="频道">
-          <button
-            v-for="channel in channels"
-            :key="channel.id"
-            type="button"
-            :class="{ active: selectedChannelId === channel.id }"
-            @click="selectChannel(channel.id)"
-          >
-            {{ channel.name }}
-          </button>
-        </div>
-
-        <p v-if="errorMessage" class="message error">{{ errorMessage }}</p>
-        <p v-else-if="successMessage" class="message success">{{ successMessage }}</p>
-
-        <div v-if="searchMode === 'user' && normalizedSearchKeyword" class="user-results" data-testid="user-results">
-          <div v-if="searching" class="empty-state">搜索中...</div>
-          <div v-else-if="userSearchResults.length === 0" class="empty-state">没有找到相关用户</div>
-          <article v-for="user in userSearchResults" v-else :key="user.userId" class="user-result">
-            <span class="avatar">{{ getDisplayName(user.nickname).slice(0, 1) }}</span>
-            <div>
-              <strong>{{ getDisplayName(user.nickname) }}</strong>
-              <span>小红书号 {{ user.redbookId || user.userId }} · {{ user.noteTotal || 0 }} 篇笔记</span>
-            </div>
-            <button
-              type="button"
-              class="ghost-action compact"
-              :disabled="loadingProfile || !currentUserId || currentUserId === user.userId || togglingFollowId === user.userId"
-              @click="toggleFollow(user.userId)"
-            >
-              {{ currentUserId === user.userId ? '自己' : isFollowing(user.userId) ? '已关注' : '关注' }}
-            </button>
-          </article>
-        </div>
-
-        <div v-else-if="loadingFeed || searching" class="empty-state">加载中...</div>
-
-        <div v-else-if="visibleFeed.length === 0" class="empty-state">
-          {{ normalizedSearchKeyword ? '没有找到相关笔记' : '当前频道暂无帖子' }}
-        </div>
-
-        <div v-else class="feed-grid" data-testid="feed-grid">
-          <article
-            v-for="note in visibleFeed"
-            :key="note.id"
-            class="note-card"
-            data-testid="note-card"
-            @click="openNote(note)"
-          >
-            <div class="cover">
-              <img v-if="note.cover" :src="note.cover" :alt="note.title" />
-              <span v-else>无封面</span>
-            </div>
-            <div class="note-meta">
-              <h3>{{ note.title }}</h3>
-              <div class="author-row">
-                <span class="avatar">{{ getDisplayName(note.nickname).slice(0, 1) }}</span>
-                <span>{{ getDisplayName(note.nickname) }}</span>
-                <strong>{{ note.likeTotal || 0 }} 赞</strong>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </section>
-
-    <section v-if="activeNote" class="detail-backdrop" @click.self="closeNote">
-      <article class="detail-panel" data-testid="detail-panel">
-        <div class="detail-media">
-          <div v-if="loadingDetail" class="media-loading">详情加载中...</div>
-          <template v-else>
-            <img v-for="image in detailImages" :key="image" :src="image" :alt="activeDetail?.title || activeNote.title" />
-            <div v-if="detailImages.length === 0" class="media-loading">暂无图片</div>
-          </template>
-        </div>
-
-        <div class="detail-side">
-          <div class="detail-actions">
-            <button
-              type="button"
-              class="social-action"
-              :class="{ active: activeLiked }"
-              :disabled="togglingLike"
-              @click="toggleLike"
-            >
-              {{ activeLiked ? '已点赞' : '点赞' }}
-            </button>
-            <button type="button" class="danger-action" :disabled="deletingNote" @click="removeActiveNote">
-              {{ confirmDeleteNote ? '确认删除' : '删除' }}
-            </button>
-            <button type="button" class="close-action" aria-label="关闭详情" @click="closeNote">×</button>
-          </div>
-
-          <template v-if="activeDetail">
-            <div class="detail-content">
-              <div class="author-block">
-                <div>
-                  <span class="author-name">{{ getDisplayName(activeDetail.nickname) }}</span>
-                  <small v-if="activeCreatorId">作者 ID {{ activeCreatorId }}</small>
-                </div>
-                <button
-                  v-if="canFollowActiveCreator"
-                  type="button"
-                  class="ghost-action compact"
-                  :disabled="loadingProfile || togglingFollowId === activeCreatorId"
-                  @click="activeCreatorId && toggleFollow(activeCreatorId)"
-                >
-                  {{ activeFollowing || isFollowing(activeCreatorId || undefined) ? '已关注' : '关注' }}
-                </button>
-              </div>
-              <h2>{{ activeDetail.title }}</h2>
-              <p>{{ activeDetail.content || '暂无正文' }}</p>
-              <div class="detail-counts">
-                <strong>{{ activeDetail.likeTotal || 0 }} 赞</strong>
-                <strong>{{ activeDetail.commentTotal || comments.length }} 评论</strong>
-                <strong>{{ activeDetail.collectTotal || 0 }} 收藏</strong>
-              </div>
-            </div>
-          </template>
-
-          <div v-else-if="loadingDetail" class="empty-state">正在读取帖子详情...</div>
-
-          <div class="comment-composer">
-            <textarea
-              v-model.trim="commentText"
-              data-testid="comment-input"
-              rows="3"
-              placeholder="写下你的评论"
-            />
-            <button
-              type="button"
-              data-testid="comment-submit"
-              :disabled="commenting || !commentText"
-              @click="submitComment"
-            >
-              {{ commenting ? '发送中...' : '发表评论' }}
-            </button>
-          </div>
-
-          <div class="comment-list" data-testid="comment-list">
-            <div class="comment-head">
-              <strong>评论</strong>
-              <span>{{ comments.length }}</span>
-            </div>
-
-            <div v-if="loadingComments" class="empty-state">评论加载中...</div>
-            <div v-else-if="comments.length === 0" class="empty-state">还没有评论</div>
-            <article v-for="comment in comments" v-else :key="comment.commentId" class="comment-item">
-              <div>
-                <span class="avatar small">{{ getDisplayName(comment.nickname).slice(0, 1) }}</span>
-                <strong>{{ getDisplayName(comment.nickname) }}</strong>
-                <button
-                  type="button"
-                  class="text-action"
-                  :disabled="deletingCommentId === comment.commentId"
-                  @click="removeComment(comment.commentId)"
-                >
-                  {{ deletingCommentId === comment.commentId ? '删除中' : '删除' }}
-                </button>
-              </div>
-              <p>{{ comment.content }}</p>
-              <span>{{ comment.createTime || '刚刚' }}</span>
-            </article>
-          </div>
-        </div>
       </article>
     </section>
-  </main>
+
+    <section v-else class="feed-wrap">
+      <div v-if="loadingFeed" class="empty-state">正在加载科研笔记...</div>
+      <div v-else-if="visibleFeed.length === 0" class="empty-state">当前频道暂无帖子</div>
+      <div v-else class="masonry-feed">
+        <article v-for="note in visibleFeed" :key="note.id" class="note-card" @click="openNote(note)">
+          <div class="cover">
+            <img v-if="note.cover" :src="note.cover" :alt="note.title" />
+            <span v-else>AI NOTE</span>
+          </div>
+          <div class="note-body">
+            <h2>{{ note.title }}</h2>
+            <div class="note-footer">
+              <span class="avatar small">{{ getDisplayName(note.nickname).slice(0, 1) }}</span>
+              <span>{{ getDisplayName(note.nickname) }}</span>
+              <strong>♡ {{ note.likeTotal || 0 }}</strong>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="floating-stats">
+      <span>{{ feedStats.noteTotal }} 篇</span>
+      <span>{{ feedStats.likeTotal }} 赞</span>
+    </div>
+  </section>
+
+  <section v-if="composerOpen" class="modal-backdrop" @click.self="closeComposer">
+    <form class="composer-panel" @submit.prevent="submitPost">
+      <div class="panel-head">
+        <div>
+          <span>NEW NOTE</span>
+          <h2>发布图文</h2>
+        </div>
+        <button type="button" class="icon-button" aria-label="关闭发布弹层" @click="closeComposer">×</button>
+      </div>
+
+      <label class="field">
+        <span>标题</span>
+        <input v-model.trim="title" type="text" placeholder="比如：这篇 NeurIPS poster 真的讲透了 Agent 记忆" />
+      </label>
+
+      <label class="field">
+        <span>正文</span>
+        <textarea v-model.trim="content" rows="6" placeholder="写一点方法直觉、实验亮点和复现心得" />
+      </label>
+
+      <div class="field-grid">
+        <label class="field">
+          <span>频道</span>
+          <select v-model.number="selectedChannelId">
+            <option v-for="channel in channels" :key="channel.id" :value="channel.id">{{ channel.name }}</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>话题</span>
+          <input v-model.trim="topicInput" type="text" placeholder="AI科研,顶会论文" />
+        </label>
+      </div>
+
+      <label class="upload-box" :class="{ filled: imageSource }">
+        <input type="file" accept="image/*" @change="onImageChange" />
+        <img v-if="imageSource" :src="imageSource" alt="待发布图片预览" />
+        <span v-else>选择图片</span>
+      </label>
+
+      <label class="field">
+        <span>图片地址</span>
+        <input v-model.trim="imageUrlInput" type="url" placeholder="https://..." />
+      </label>
+
+      <div class="topic-preview">
+        <span v-for="topic in topicList" :key="topic">#{{ topic }}</span>
+      </div>
+
+      <button class="primary-submit" type="submit" :disabled="publishing">
+        {{ publishing ? '发布中...' : '发布图文' }}
+      </button>
+    </form>
+  </section>
+
+  <section v-if="activeNote" class="modal-backdrop detail-backdrop" @click.self="closeNote">
+    <article class="detail-panel">
+      <div class="detail-media">
+        <div v-if="loadingDetail" class="media-loading">详情加载中...</div>
+        <template v-else>
+          <img v-for="image in detailImages" :key="image" :src="image" :alt="activeDetail?.title || activeNote.title" />
+          <div v-if="detailImages.length === 0" class="media-loading">暂无图片</div>
+        </template>
+      </div>
+
+      <div class="detail-side">
+        <button type="button" class="icon-button close-detail" aria-label="关闭详情" @click="closeNote">×</button>
+
+        <template v-if="activeDetail">
+          <div class="author-block">
+            <span class="avatar">{{ getDisplayName(activeDetail.nickname).slice(0, 1) }}</span>
+            <div>
+              <strong>{{ getDisplayName(activeDetail.nickname) }}</strong>
+              <p v-if="activeCreatorId">作者 ID {{ activeCreatorId }}</p>
+            </div>
+            <button
+              v-if="canFollowActiveCreator"
+              type="button"
+              class="follow-button"
+              :disabled="loadingProfile || togglingFollowId === activeCreatorId"
+              @click="activeCreatorId && toggleFollow(activeCreatorId)"
+            >
+              {{ activeFollowing || isFollowing(activeCreatorId || undefined) ? '已关注' : '关注' }}
+            </button>
+          </div>
+
+          <h1>{{ activeDetail.title }}</h1>
+          <p class="detail-content">{{ activeDetail.content || '暂无正文' }}</p>
+
+          <div class="detail-counts">
+            <span>{{ activeDetail.likeTotal || 0 }} 赞</span>
+            <span>{{ activeDetail.commentTotal || comments.length }} 评论</span>
+            <span>{{ activeDetail.collectTotal || 0 }} 收藏</span>
+          </div>
+        </template>
+
+        <div v-else-if="loadingDetail" class="empty-state">正在读取帖子详情...</div>
+
+        <div class="action-row">
+          <button type="button" class="like-button" :class="{ active: activeLiked }" :disabled="togglingLike" @click="toggleLike">
+            {{ activeLiked ? '♥ 已赞' : '♡ 点赞' }}
+          </button>
+          <button type="button" class="delete-button" :disabled="deletingNote" @click="removeActiveNote">
+            {{ confirmDeleteNote ? '确认删除' : '删除' }}
+          </button>
+        </div>
+
+        <div class="comment-composer">
+          <textarea v-model.trim="commentText" rows="3" placeholder="写下你的评论" />
+          <button type="button" :disabled="commenting || !commentText" @click="submitComment">
+            {{ commenting ? '发送中...' : '发送' }}
+          </button>
+        </div>
+
+        <div class="comment-list">
+          <div class="comment-head">
+            <strong>评论</strong>
+            <span>{{ comments.length }}</span>
+          </div>
+
+          <div v-if="loadingComments" class="empty-state">评论加载中...</div>
+          <div v-else-if="comments.length === 0" class="empty-state">还没有评论</div>
+          <article v-for="comment in comments" v-else :key="comment.commentId" class="comment-item">
+            <div>
+              <span class="avatar small">{{ getDisplayName(comment.nickname).slice(0, 1) }}</span>
+              <strong>{{ getDisplayName(comment.nickname) }}</strong>
+              <button type="button" :disabled="deletingCommentId === comment.commentId" @click="removeComment(comment.commentId)">
+                {{ deletingCommentId === comment.commentId ? '删除中' : '删除' }}
+              </button>
+            </div>
+            <p>{{ comment.content }}</p>
+            <span>{{ comment.createTime || '刚刚' }}</span>
+          </article>
+        </div>
+      </div>
+    </article>
+  </section>
 </template>
 
 <style scoped>
-.redbook-home {
-  padding-bottom: 58px;
-}
-
-.home-head {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 24px;
-  margin-bottom: 22px;
-  padding: 22px 0 8px;
-}
-
-.eyebrow {
-  color: var(--color-accent);
-  font-size: 0.76rem;
-  font-weight: 900;
-  line-height: 1.2;
-  text-transform: uppercase;
-}
-
-.home-head h1 {
-  margin-top: 2px;
-  color: var(--color-heading);
-  font-size: 2.35rem;
-  font-weight: 950;
-  line-height: 1.08;
-}
-
-.home-head span {
-  display: inline-block;
-  margin-top: 8px;
-  color: var(--color-muted);
-  font-weight: 700;
-}
-
-.head-stats {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  align-items: baseline;
-  gap: 8px;
-  min-height: 54px;
-  border: 1px solid rgba(19, 133, 117, 0.18);
-  border-radius: 8px;
-  background: var(--color-surface);
-  color: var(--color-muted);
-  padding: 10px 16px;
-}
-
-.head-stats strong {
-  color: var(--color-primary);
-  font-size: 1.28rem;
-  font-weight: 950;
-}
-
-.workspace {
-  display: grid;
-  grid-template-columns: minmax(300px, 376px) 1fr;
-  gap: 22px;
-  align-items: start;
-}
-
-.publisher,
-.feed-surface {
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--shadow-card);
-}
-
-.publisher {
-  position: sticky;
-  top: 18px;
-  display: grid;
-  gap: 15px;
-  padding: 20px;
-}
-
-.panel-title,
-.feed-toolbar,
-.detail-actions,
-.comment-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.panel-title span {
-  color: var(--color-muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-}
-
-.panel-title h2,
-.feed-toolbar h2 {
-  color: var(--color-heading);
-  font-size: 1.4rem;
-  font-weight: 950;
-  line-height: 1.18;
-}
-
-.panel-title strong {
-  border-radius: 999px;
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
-  font-size: 0.82rem;
-  font-weight: 900;
-  padding: 6px 10px;
-}
-
-.field,
-.field-row {
-  display: grid;
-  gap: 7px;
-}
-
-.field-row {
-  grid-template-columns: minmax(104px, 0.8fr) 1.2fr;
-  gap: 10px;
-}
-
-.field span {
-  color: #526174;
-  font-size: 0.9rem;
-  font-weight: 800;
-}
-
-.field.compact {
-  gap: 6px;
-}
-
-input,
-textarea,
-select {
-  width: 100%;
-  border: 1px solid var(--color-border-strong);
-  border-radius: 6px;
-  background: #ffffff;
-  color: var(--color-heading);
-  outline: 0;
-  padding: 10px 12px;
-  transition:
-    border-color 0.18s ease,
-    box-shadow 0.18s ease;
-}
-
-select {
-  min-height: 43px;
-}
-
-textarea {
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(223, 63, 82, 0.13);
-}
-
-.upload-box {
+.discover-page {
   position: relative;
+  width: min(100% - 72px, 1480px);
+  margin: 0 auto;
+  padding: 30px 0 80px;
+}
+
+.discover-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: grid;
-  min-height: 216px;
-  place-items: center;
-  overflow: hidden;
-  border: 1px dashed var(--color-border-strong);
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(226, 244, 240, 0.7), rgba(253, 232, 235, 0.65)),
-    #f8fbfc;
-  cursor: pointer;
-}
-
-.upload-box.filled {
-  border-style: solid;
-}
-
-.upload-box input {
-  display: none;
-}
-
-.upload-box span {
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  color: var(--color-heading);
-  font-weight: 900;
-  padding: 10px 16px;
-}
-
-.upload-box img {
-  width: 100%;
-  height: 244px;
-  object-fit: cover;
-}
-
-.topic-preview {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  min-height: 28px;
-}
-
-.topic-preview span {
-  border-radius: 999px;
-  background: var(--color-surface-muted);
-  color: var(--color-muted);
-  font-size: 0.82rem;
-  font-weight: 800;
-  padding: 4px 9px;
-}
-
-button {
-  min-height: 42px;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 900;
-  transition:
-    background-color 0.18s ease,
-    border-color 0.18s ease,
-    color 0.18s ease,
-    transform 0.18s ease;
-}
-
-button:disabled {
-  cursor: not-allowed;
-  opacity: 0.58;
-}
-
-.primary-action {
-  background: var(--color-primary);
-  color: #ffffff;
-}
-
-.primary-action.compact,
-.ghost-action.compact {
-  min-height: 40px;
-  padding: 0 14px;
-}
-
-.primary-action:hover:not(:disabled),
-.comment-composer button:hover:not(:disabled) {
-  transform: translateY(-1px);
-}
-
-.ghost-action {
-  border: 1px solid var(--color-border-strong);
-  background: #ffffff;
-  color: var(--color-heading);
-  padding: 0 14px;
-}
-
-.ghost-action:hover:not(:disabled) {
-  border-color: var(--color-primary);
-  color: var(--color-primary-strong);
-}
-
-.feed-surface {
-  min-height: 680px;
-  padding: 22px;
-}
-
-.feed-toolbar {
-  margin-bottom: 18px;
+  grid-template-columns: minmax(320px, 560px) auto;
+  gap: 28px;
+  align-items: center;
+  justify-content: center;
+  min-height: 76px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
 }
 
 .search-bar {
   display: grid;
-  grid-template-columns: auto minmax(180px, 1fr) auto auto;
-  gap: 10px;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
   align-items: center;
-  margin-bottom: 16px;
+  gap: 8px;
+  height: 48px;
+  border-radius: 999px;
+  background: #f6f6f6;
+  padding: 0 12px 0 8px;
 }
 
-.segmented-control {
-  display: inline-grid;
-  grid-template-columns: repeat(2, 1fr);
+.search-tabs {
+  display: flex;
   gap: 4px;
-  min-width: 126px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: var(--color-surface-muted);
-  padding: 4px;
 }
 
-.segmented-control button {
-  min-height: 32px;
+.search-tabs button,
+.search-bar > button,
+.clear-button,
+.header-links button,
+.channel-tabs button,
+.user-card button,
+.follow-button,
+.like-button,
+.delete-button,
+.comment-composer button,
+.primary-submit {
+  border: 0;
+  cursor: pointer;
+  font-weight: 850;
+}
+
+.search-tabs button {
+  height: 34px;
+  border-radius: 999px;
   background: transparent;
-  color: var(--color-muted);
-  padding: 0 10px;
+  color: #777777;
+  padding: 0 12px;
 }
 
-.segmented-control button.active {
+.search-tabs button.active {
   background: #ffffff;
-  color: var(--color-primary-strong);
-  box-shadow: 0 2px 10px rgba(23, 32, 43, 0.08);
+  color: #ff2442;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.search-bar input {
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: #111111;
+  outline: 0;
+}
+
+.search-bar > button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  background: transparent;
+  color: #333333;
+  font-size: 1.25rem;
+}
+
+.clear-button {
+  width: auto !important;
+  color: #999999 !important;
+  font-size: 0.82rem !important;
+  padding: 0 6px;
+}
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-self: end;
+  color: #555555;
+  font-weight: 760;
+}
+
+.publish-button {
+  min-height: 40px;
+  border-radius: 999px;
+  background: #ff2442;
+  color: #ffffff;
+  padding: 0 18px;
 }
 
 .channel-tabs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 22px;
+  align-items: center;
+  overflow-x: auto;
+  padding: 22px 0 18px;
 }
 
 .channel-tabs button {
-  min-height: 38px;
-  background: var(--color-surface-muted);
-  color: var(--color-muted);
-  padding: 0 14px;
+  flex: 0 0 auto;
+  height: 34px;
+  border-radius: 999px;
+  background: transparent;
+  color: #555555;
+  font-size: 0.98rem;
+  padding: 0 4px;
 }
 
 .channel-tabs button.active {
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-}
-
-.message,
-.empty-state {
-  border-radius: 8px;
-  margin-bottom: 16px;
-  padding: 14px;
-}
-
-.message.error {
-  border: 1px solid rgba(223, 63, 82, 0.18);
-  background: #fff3f4;
-  color: var(--color-primary-strong);
-}
-
-.message.success {
-  border: 1px solid rgba(19, 133, 117, 0.18);
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
-}
-
-.empty-state,
-.media-loading {
-  display: grid;
-  min-height: 74px;
-  place-items: center;
-  border: 1px dashed var(--color-border);
-  border-radius: 8px;
-  background: #f9fbfc;
-  color: var(--color-muted);
-  font-weight: 800;
-}
-
-.feed-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(206px, 1fr));
-  gap: 16px;
-}
-
-.user-results {
-  display: grid;
-  gap: 10px;
-}
-
-.user-result {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 12px;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  background: #ffffff;
-  padding: 12px;
-}
-
-.user-result strong {
-  display: block;
-  color: var(--color-heading);
+  color: #111111;
   font-weight: 950;
 }
 
-.user-result span {
-  color: var(--color-muted);
-  font-size: 0.86rem;
-  font-weight: 700;
+.channel-tabs button.active::after {
+  display: block;
+  width: 18px;
+  height: 3px;
+  margin: 3px auto 0;
+  border-radius: 999px;
+  background: #ff2442;
+  content: '';
+}
+
+.toast,
+.empty-state {
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.toast.error {
+  background: #fff2f4;
+  color: #e60033;
+}
+
+.toast.success {
+  background: #f0fdf4;
+  color: #087f5b;
+}
+
+.empty-state {
+  display: grid;
+  min-height: 110px;
+  place-items: center;
+  border: 1px dashed #e8e8e8;
+  color: #777777;
+  font-weight: 850;
+}
+
+.masonry-feed {
+  column-count: 5;
+  column-gap: 22px;
 }
 
 .note-card {
+  display: inline-block;
+  width: 100%;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
+  break-inside: avoid;
+  border-radius: 12px;
   background: #ffffff;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(23, 32, 43, 0.04);
+  margin: 0 0 22px;
   transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .note-card:hover {
-  border-color: rgba(223, 63, 82, 0.42);
-  box-shadow: var(--shadow-card);
-  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+  transform: translateY(-3px);
 }
 
 .cover {
+  position: relative;
   display: grid;
-  aspect-ratio: 4 / 5;
+  min-height: 220px;
   place-items: center;
-  background: #eaf0f4;
-  color: var(--color-muted);
-  font-weight: 900;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f4f4f4;
+  color: #999999;
+  font-weight: 950;
 }
 
 .cover img {
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   object-fit: cover;
 }
 
-.note-meta {
+.note-body {
   display: grid;
-  gap: 12px;
-  padding: 13px;
+  gap: 10px;
+  padding: 10px 6px 4px;
 }
 
-.note-meta h3 {
-  min-height: 44px;
-  color: var(--color-heading);
-  font-size: 1rem;
-  font-weight: 900;
-  line-height: 1.36;
+.note-body h2 {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #222222;
+  font-size: 0.96rem;
+  font-weight: 760;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
-.author-row {
+.note-footer {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 8px;
-  color: var(--color-muted);
-  font-size: 0.88rem;
-  font-weight: 700;
+  gap: 7px;
+  color: #666666;
+  font-size: 0.82rem;
 }
 
-.author-row strong {
-  color: var(--color-primary);
-  font-weight: 900;
+.note-footer span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.note-footer strong {
+  color: #777777;
+  font-weight: 760;
 }
 
 .avatar {
   display: grid;
-  width: 28px;
-  height: 28px;
+  width: 40px;
+  height: 40px;
   place-items: center;
-  border-radius: 999px;
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
-  font-size: 0.82rem;
+  border-radius: 50%;
+  background: #ffe9ee;
+  color: #ff2442;
   font-weight: 950;
 }
 
 .avatar.small {
   width: 24px;
   height: 24px;
-  font-size: 0.76rem;
+  font-size: 0.78rem;
 }
 
-.detail-backdrop {
+.user-results {
+  display: grid;
+  gap: 12px;
+  width: min(720px, 100%);
+}
+
+.user-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #eeeeee;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.user-card strong {
+  font-weight: 950;
+}
+
+.user-card p {
+  color: #777777;
+  font-size: 0.88rem;
+}
+
+.user-card button,
+.follow-button {
+  min-height: 34px;
+  border-radius: 999px;
+  background: #ff2442;
+  color: #ffffff;
+  padding: 0 14px;
+}
+
+.floating-stats {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.floating-stats span {
+  border: 1px solid #eeeeee;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: #555555;
+  font-size: 0.82rem;
+  font-weight: 850;
+  padding: 7px 10px;
+  backdrop-filter: blur(12px);
+}
+
+.modal-backdrop {
   position: fixed;
   inset: 0;
+  z-index: 60;
   display: grid;
   place-items: center;
-  background: rgba(17, 24, 39, 0.46);
-  padding: 22px;
-  z-index: 30;
+  background: rgba(0, 0, 0, 0.42);
+  padding: 24px;
+}
+
+.composer-panel,
+.detail-panel {
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.18);
+}
+
+.composer-panel {
+  display: grid;
+  gap: 14px;
+  width: min(640px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 24px;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.panel-head span {
+  color: #ff2442;
+  font-size: 0.75rem;
+  font-weight: 950;
+}
+
+.panel-head h2 {
+  color: #111111;
+  font-size: 1.5rem;
+  font-weight: 950;
+}
+
+.icon-button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #f5f5f5;
+  color: #222222;
+  cursor: pointer;
+  font-size: 1.32rem;
+}
+
+.field,
+.field-grid {
+  display: grid;
+  gap: 7px;
+}
+
+.field-grid {
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 10px;
+}
+
+.field span {
+  color: #555555;
+  font-weight: 850;
+}
+
+.field input,
+.field textarea,
+.field select,
+.comment-composer textarea {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #111111;
+  outline: 0;
+  padding: 12px;
+}
+
+.field textarea,
+.comment-composer textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.comment-composer textarea:focus {
+  border-color: #ff2442;
+  box-shadow: 0 0 0 3px rgba(255, 36, 66, 0.1);
+}
+
+.upload-box {
+  position: relative;
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed #dddddd;
+  border-radius: 14px;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.upload-box input {
+  display: none;
+}
+
+.upload-box img {
+  width: 100%;
+  max-height: 340px;
+  object-fit: cover;
+}
+
+.upload-box span {
+  border-radius: 999px;
+  background: #ffffff;
+  color: #333333;
+  font-weight: 900;
+  padding: 10px 16px;
+}
+
+.topic-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.topic-preview span {
+  border-radius: 999px;
+  background: #f6f6f6;
+  color: #777777;
+  font-size: 0.82rem;
+  font-weight: 850;
+  padding: 6px 10px;
+}
+
+.primary-submit {
+  min-height: 46px;
+  border-radius: 999px;
+  background: #ff2442;
+  color: #ffffff;
 }
 
 .detail-panel {
   display: grid;
-  grid-template-columns: minmax(320px, 1.12fr) minmax(360px, 0.88fr);
-  width: min(1120px, 100%);
-  max-height: min(92vh, 860px);
+  grid-template-columns: minmax(420px, 1fr) minmax(420px, 0.82fr);
+  width: min(1180px, 100%);
+  max-height: min(92vh, 900px);
   overflow: hidden;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 24px 80px rgba(8, 13, 20, 0.28);
 }
 
 .detail-media {
   display: grid;
   align-content: center;
-  gap: 12px;
-  min-height: 560px;
+  min-height: 680px;
   overflow: auto;
-  background: #111827;
+  background: #111111;
   padding: 18px;
 }
 
 .detail-media img {
   width: 100%;
-  max-height: 78vh;
-  border-radius: 8px;
+  max-height: 82vh;
+  border-radius: 12px;
   object-fit: contain;
-  background: #0f172a;
+}
+
+.media-loading {
+  color: #ffffff;
+  text-align: center;
 }
 
 .detail-side {
+  position: relative;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
-  gap: 18px;
-  min-height: 560px;
+  grid-template-rows: auto auto auto auto auto 1fr;
+  gap: 16px;
+  min-height: 680px;
   overflow: auto;
-  padding: 20px;
+  padding: 24px;
 }
 
-.close-action {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  min-height: 38px;
-  place-items: center;
-  background: var(--color-surface-muted);
-  color: var(--color-heading);
-  font-size: 1.35rem;
-}
-
-.danger-action {
-  min-height: 38px;
-  background: #fff3f4;
-  color: var(--color-primary-strong);
-  padding: 0 12px;
-}
-
-.social-action {
-  min-height: 38px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  padding: 0 14px;
-}
-
-.social-action.active {
-  background: var(--color-primary);
-  color: #ffffff;
-}
-
-.detail-content {
-  display: grid;
-  gap: 10px;
+.close-detail {
+  position: absolute;
+  top: 18px;
+  right: 18px;
 }
 
 .author-block {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 12px;
+  align-items: center;
+  padding-right: 52px;
 }
 
-.author-block small {
-  display: block;
-  margin-top: 3px;
-  color: var(--color-muted);
-  font-size: 0.78rem;
-  font-weight: 800;
-}
-
-.author-name {
-  color: var(--color-accent);
-  font-weight: 900;
-}
-
-.detail-content h2 {
-  color: var(--color-heading);
-  font-size: 1.54rem;
+.author-block strong {
   font-weight: 950;
-  line-height: 1.28;
 }
 
-.detail-content p,
+.author-block p {
+  color: #777777;
+  font-size: 0.84rem;
+}
+
+.detail-side h1 {
+  color: #111111;
+  font-size: 1.35rem;
+  font-weight: 950;
+  line-height: 1.35;
+}
+
+.detail-content,
 .comment-item p {
-  color: #334155;
-  line-height: 1.75;
+  color: #333333;
+  line-height: 1.8;
   white-space: pre-wrap;
 }
 
-.detail-counts {
+.detail-counts,
+.action-row {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.detail-counts strong {
+.detail-counts span {
+  color: #777777;
+  font-size: 0.88rem;
+}
+
+.like-button,
+.delete-button {
+  min-height: 38px;
   border-radius: 999px;
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
-  font-size: 0.84rem;
-  font-weight: 900;
-  padding: 5px 10px;
+  padding: 0 16px;
+}
+
+.like-button {
+  background: #fff1f3;
+  color: #ff2442;
+}
+
+.like-button.active {
+  background: #ff2442;
+  color: #ffffff;
+}
+
+.delete-button {
+  background: #f6f6f6;
+  color: #555555;
 }
 
 .comment-composer {
@@ -1444,7 +1397,9 @@ button:disabled {
 
 .comment-composer button {
   justify-self: end;
-  background: var(--color-accent);
+  min-height: 36px;
+  border-radius: 999px;
+  background: #ff2442;
   color: #ffffff;
   padding: 0 18px;
 }
@@ -1456,133 +1411,113 @@ button:disabled {
 }
 
 .comment-head {
-  padding-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .comment-head strong {
-  color: var(--color-heading);
-  font-size: 1rem;
   font-weight: 950;
 }
 
 .comment-head span {
   border-radius: 999px;
-  background: var(--color-surface-muted);
-  color: var(--color-muted);
-  font-size: 0.82rem;
+  background: #f6f6f6;
+  color: #777777;
+  font-size: 0.8rem;
   font-weight: 900;
-  padding: 3px 9px;
+  padding: 3px 8px;
 }
 
 .comment-item {
   display: grid;
-  gap: 7px;
-  border-top: 1px solid #edf1f5;
+  gap: 6px;
+  border-top: 1px solid #f1f1f1;
   padding-top: 12px;
 }
 
 .comment-item > div {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
   gap: 8px;
+  align-items: center;
 }
 
 .comment-item strong {
-  color: var(--color-heading);
-  font-weight: 900;
+  font-size: 0.88rem;
+}
+
+.comment-item button {
+  border: 0;
+  background: transparent;
+  color: #999999;
+  cursor: pointer;
+  font-size: 0.78rem;
 }
 
 .comment-item > span {
-  color: var(--color-muted);
-  font-size: 0.82rem;
+  color: #999999;
+  font-size: 0.78rem;
 }
 
-.text-action {
-  min-height: 30px;
-  background: transparent;
-  color: var(--color-muted);
-  font-size: 0.82rem;
-  padding: 0 6px;
+@media (max-width: 1320px) {
+  .masonry-feed {
+    column-count: 4;
+  }
 }
 
-.text-action:hover:not(:disabled) {
-  color: var(--color-primary-strong);
-}
-
-@media (max-width: 980px) {
-  .home-head {
-    align-items: start;
-    flex-direction: column;
+@media (max-width: 1080px) {
+  .discover-page {
+    width: min(100% - 32px, 1480px);
   }
 
-  .workspace {
+  .discover-header {
     grid-template-columns: 1fr;
   }
 
-  .publisher {
-    position: static;
+  .header-links {
+    justify-self: start;
+  }
+
+  .masonry-feed {
+    column-count: 3;
   }
 
   .detail-panel {
     grid-template-columns: 1fr;
     overflow: auto;
   }
-
-  .detail-media,
-  .detail-side {
-    min-height: unset;
-  }
-
-  .detail-media {
-    max-height: 48vh;
-  }
 }
 
-@media (max-width: 620px) {
-  .redbook-home {
-    padding-bottom: 36px;
-  }
-
-  .home-head h1 {
-    font-size: 2rem;
-  }
-
-  .head-stats,
-  .field-row {
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-  }
-
-  .feed-surface,
-  .publisher,
-  .detail-side {
-    padding: 16px;
-  }
-
-  .feed-toolbar {
-    align-items: start;
-    flex-direction: column;
-  }
-
+@media (max-width: 700px) {
   .search-bar {
-    grid-template-columns: 1fr;
-  }
-
-  .user-result {
-    grid-template-columns: auto minmax(0, 1fr);
-  }
-
-  .user-result button {
-    grid-column: 1 / -1;
-  }
-
-  .detail-backdrop {
+    grid-template-columns: 1fr auto;
+    height: auto;
+    border-radius: 18px;
     padding: 10px;
   }
 
-  .detail-panel {
-    max-height: 94vh;
+  .search-tabs,
+  .clear-button {
+    grid-column: 1 / -1;
+  }
+
+  .masonry-feed {
+    column-count: 2;
+    column-gap: 14px;
+  }
+
+  .note-card {
+    margin-bottom: 16px;
+  }
+
+  .field-grid,
+  .author-block {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-backdrop {
+    padding: 10px;
   }
 }
 </style>

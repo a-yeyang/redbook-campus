@@ -17,59 +17,35 @@ This version is intentionally lighter than the original architecture. Cassandra 
 
 ## Architecture
 
-```mermaid
-flowchart LR
-    Web["Vue 3 Web App"] --> Gateway["Spring Cloud Gateway :8000"]
+![Redbook Campus architecture](docs/assets/redbook-architecture.png)
 
-    Gateway --> Auth["redbook-auth"]
-    Gateway --> User["redbook-user"]
-    Gateway --> Note["redbook-note"]
-    Gateway --> Comment["redbook-comment"]
-    Gateway --> Relation["redbook-user-relation"]
-    Gateway --> OSS["redbook-oss"]
-    Gateway --> Search["redbook-search"]
+The diagram source is kept as an editable SVG at `docs/assets/redbook-architecture.svg`. Logo assets are stored locally under `docs/assets/logos/` so the README renders consistently without remote image dependencies.
 
-    Note --> KV["redbook-kv"]
-    Note --> ID["redbook-distributed-id-generator"]
-    Note --> Count["redbook-count"]
-    Comment --> Count
-    Relation --> User
+## Product Experience
 
-    Auth --> Redis[("Redis")]
-    User --> MySQL[("MySQL")]
-    Note --> MySQL
-    Comment --> MySQL
-    Relation --> MySQL
-    KV --> MySQL
-    Count --> Redis
-    Search --> ES[("Elasticsearch")]
-    OSS --> MinIO[("MinIO")]
+![Redbook Campus social feed](docs/assets/redbook-home-preview.png)
 
-    Note --> MQ["RocketMQ"]
-    Comment --> MQ
-    Relation --> MQ
-    MQ --> Count
-```
+The Vue 3 client now presents a polished social feed with a creator rail, channel navigation, masonry-style note cards, publish modal, search studio, detail drawer, comments, likes, and follow actions.
 
 ## Repository Layout
 
 ```text
 redbook-campus/
-├── redbook/                         # Java 21 multi-module backend
-│   ├── deploy/                      # Docker Compose and local database bootstrap
-│   ├── red-framework/               # Shared framework starters and utilities
-│   ├── redbook-gateway/             # API gateway
-│   ├── redbook-auth/                # Authentication
-│   ├── redbook-user/                # User profile and account service
-│   ├── redbook-note/                # Note publishing, detail, feed, like, collect
-│   ├── redbook-comment/             # Comment service
-│   ├── redbook-user-relation/       # Follow and fan relationship service
-│   ├── redbook-count/               # Counter aggregation
-│   ├── redbook-search/              # Elasticsearch search service
-│   ├── redbook-oss/                 # MinIO object storage adapter
-│   ├── redbook-kv/                  # MySQL-backed note/comment content storage
-│   └── redbook-distributed-id-generator/
-└── vue3/                            # Vue 3 + Vite frontend
+|-- redbook/                         # Java 21 multi-module backend
+|   |-- deploy/                      # Docker Compose and local database bootstrap
+|   |-- red-framework/               # Shared framework starters and utilities
+|   |-- redbook-gateway/             # API gateway
+|   |-- redbook-auth/                # Authentication
+|   |-- redbook-user/                # User profile and account service
+|   |-- redbook-note/                # Note publishing, detail, feed, like, collect
+|   |-- redbook-comment/             # Comment service
+|   |-- redbook-user-relation/       # Follow and fan relationship service
+|   |-- redbook-count/               # Counter aggregation
+|   |-- redbook-search/              # Elasticsearch search service
+|   |-- redbook-oss/                 # MinIO object storage adapter
+|   |-- redbook-kv/                  # MySQL-backed note/comment content storage
+|   `-- redbook-distributed-id-generator/
+`-- vue3/                            # Vue 3 + Vite frontend
 ```
 
 ## Technology Stack

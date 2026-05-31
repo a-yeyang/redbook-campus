@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Nacos">
+  <rect width="160" height="160" rx="36" fill="#eaf4ff"/>
+  <path d="M80 22 130 50v60l-50 28-50-28V50l50-28Z" fill="#2f7df6"/>
+  <path d="M52 58h18l38 44V58h18v50h-18L70 64v44H52V58Z" fill="#fff"/>
+</svg>

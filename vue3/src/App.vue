@@ -20,154 +20,243 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="app-shell">
-    <header class="topbar">
-      <RouterLink class="brand" to="/" aria-label="Redbook Campus 首页">
-        <span class="brand-mark">R</span>
-        <span>
-          <strong>Redbook Campus</strong>
-          <em>校园图文社区</em>
+  <div class="xhs-shell">
+    <aside class="xhs-sidebar" aria-label="主导航">
+      <RouterLink class="brand" to="/" aria-label="BIT Redbook 首页">
+        <span class="brand-symbol">
+          <img src="/bit-emblem-red.svg" alt="北京理工大学校徽" />
         </span>
+        <strong>BIT Redbook</strong>
       </RouterLink>
 
-      <nav>
-        <RouterLink to="/">发现</RouterLink>
-        <a href="/#publish">发布</a>
-        <RouterLink to="/login">{{ hasToken ? '登录态' : '登录' }}</RouterLink>
+      <nav class="side-nav">
+        <RouterLink to="/" class="nav-item">
+          <span class="nav-icon">⌂</span>
+          <span>发现</span>
+        </RouterLink>
+        <a href="/#trend" class="nav-item">
+          <span class="nav-icon">▶</span>
+          <span>RED</span>
+        </a>
+        <a href="/#live" class="nav-item">
+          <span class="nav-icon">◉</span>
+          <span>直播</span>
+        </a>
+        <a href="/#publish" class="nav-item">
+          <span class="nav-icon">＋</span>
+          <span>发布</span>
+        </a>
+        <RouterLink to="/login" class="nav-item">
+          <span class="nav-icon">◇</span>
+          <span>{{ hasToken ? '登录态' : '登录' }}</span>
+        </RouterLink>
       </nav>
 
-      <div class="session-pill" :class="{ active: hasToken }">
+      <RouterLink v-if="!hasToken" to="/login" class="login-button">登录</RouterLink>
+      <div v-else class="status-card">
         <span></span>
-        {{ hasToken ? '已登录' : '未登录' }}
+        已登录
       </div>
-    </header>
 
-    <RouterView />
+      <div class="sidebar-card">
+        <strong>Campus Pro</strong>
+        <p>AI paper notes, lab posters, methods, benchmarks.</p>
+      </div>
+
+      <div class="sidebar-bottom">
+        <a href="/#more" class="nav-item subtle">
+          <span class="nav-icon">☰</span>
+          <span>更多</span>
+        </a>
+        <a href="/#about" class="nav-item subtle">
+          <span class="nav-icon">ⓘ</span>
+          <span>关于我们</span>
+        </a>
+      </div>
+    </aside>
+
+    <main class="xhs-main">
+      <RouterView />
+    </main>
   </div>
 </template>
 
 <style scoped>
-.app-shell {
+.xhs-shell {
   min-height: 100vh;
-  padding-bottom: 42px;
 }
 
-.topbar {
+.xhs-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 260px;
+  flex-direction: column;
   gap: 18px;
-  padding: 18px 0 26px;
+  border-right: 1px solid #f0f0f0;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 34px 24px 28px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: #1d2733;
+  gap: 10px;
+  width: fit-content;
 }
 
-.brand-mark {
+.brand-symbol {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
   place-items: center;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--color-primary), #f06b6d 58%, var(--color-warm));
-  color: #ffffff;
-  font-size: 1.25rem;
-  font-weight: 900;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 12px 28px rgba(215, 25, 32, 0.14);
+}
+
+.brand-symbol img {
+  width: 44px;
+  height: 44px;
+  display: block;
 }
 
 .brand strong {
-  display: block;
-  color: var(--color-heading);
-  font-size: 1.12rem;
-  font-weight: 900;
-  line-height: 1.15;
+  color: #111111;
+  font-size: 1.04rem;
+  font-weight: 950;
+  letter-spacing: 0;
 }
 
-.brand em {
-  display: block;
-  color: var(--color-muted);
-  font-size: 0.78rem;
-  font-style: normal;
-  font-weight: 700;
+.side-nav,
+.sidebar-bottom {
+  display: grid;
+  gap: 8px;
 }
 
-nav {
+.side-nav {
+  margin-top: 18px;
+}
+
+.nav-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-left: auto;
+  gap: 14px;
+  min-height: 48px;
+  border-radius: 999px;
+  color: #222222;
+  font-size: 1.02rem;
+  font-weight: 760;
+  padding: 0 18px;
 }
 
-nav a {
-  border-radius: 6px;
-  color: var(--color-muted);
-  font-weight: 700;
-  padding: 8px 12px;
+.nav-item:hover,
+.nav-item.router-link-exact-active {
+  background: #f5f5f5;
 }
 
-nav a:hover {
-  background: var(--color-surface-muted);
-  color: var(--color-heading);
+.nav-icon {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  color: #222222;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
-nav a.router-link-exact-active {
-  background: var(--color-primary-soft);
-  color: var(--color-primary-strong);
+.login-button {
+  display: grid;
+  min-height: 48px;
+  place-items: center;
+  border-radius: 999px;
+  background: #ff2442;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
 }
 
-.session-pill {
+.status-card,
+.sidebar-card {
+  border: 1px solid #eeeeee;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.status-card {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  min-height: 36px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-muted);
-  font-size: 0.86rem;
-  font-weight: 800;
-  padding: 0 12px;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  color: #087f5b;
+  font-weight: 900;
 }
 
-.session-pill span {
+.status-card span {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #a9b5c3;
+  background: #12b886;
 }
 
-.session-pill.active {
-  border-color: rgba(19, 133, 117, 0.24);
-  color: var(--color-accent);
+.sidebar-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
 }
 
-.session-pill.active span {
-  background: var(--color-accent);
+.sidebar-card strong {
+  color: #111111;
+  font-weight: 950;
 }
 
-@media (max-width: 520px) {
-  .topbar {
-    align-items: stretch;
-    flex-wrap: wrap;
-    padding-bottom: 18px;
-  }
+.sidebar-card p {
+  color: #777777;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
 
-  nav {
-    order: 3;
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.nav-item.subtle {
+  color: #444444;
+}
+
+.xhs-main {
+  min-height: 100vh;
+  padding-left: 260px;
+}
+
+@media (max-width: 900px) {
+  .xhs-sidebar {
+    position: sticky;
+    top: 0;
+    flex-direction: row;
     width: 100%;
+    height: auto;
+    align-items: center;
+    overflow-x: auto;
+    padding: 12px 16px;
   }
 
-  nav a {
-    flex: 1;
-    text-align: center;
+  .side-nav {
+    display: flex;
+    margin-top: 0;
   }
 
-  .session-pill {
-    margin-left: auto;
+  .sidebar-card,
+  .sidebar-bottom,
+  .status-card,
+  .login-button {
+    display: none;
+  }
+
+  .xhs-main {
+    padding-left: 0;
   }
 }
 </style>

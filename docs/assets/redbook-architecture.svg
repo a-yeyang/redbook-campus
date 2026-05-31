@@ -1,0 +1,212 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1160" viewBox="0 0 1800 1160" role="img" aria-label="Redbook Campus architecture">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff7f8"/>
+      <stop offset="0.46" stop-color="#f7fbff"/>
+      <stop offset="1" stop-color="#f4fff9"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5a66"/>
+      <stop offset="1" stop-color="#c92f45"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#23c7a7"/>
+      <stop offset="1" stop-color="#0d8173"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4f8cff"/>
+      <stop offset="1" stop-color="#2059da"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffbd54"/>
+      <stop offset="1" stop-color="#ec7d22"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#1d2733" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="13" refY="8" orient="auto" markerUnits="strokeWidth">
+      <path d="M2 2 14 8 2 14Z" fill="#748196"/>
+    </marker>
+    <style>
+      .title{font:900 54px Inter,Segoe UI,Arial,sans-serif;fill:#17202b}
+      .subtitle{font:700 22px Inter,Segoe UI,Arial,sans-serif;fill:#69778a}
+      .layer{font:900 20px Inter,Segoe UI,Arial,sans-serif;letter-spacing:2px;fill:#7b8799}
+      .card-title{font:900 23px Inter,Segoe UI,Arial,sans-serif;fill:#17202b}
+      .card-sub{font:700 15px Inter,Segoe UI,Arial,sans-serif;fill:#69778a}
+      .chip{font:900 14px Inter,Segoe UI,Arial,sans-serif;fill:#fff}
+      .line{fill:none;stroke:#748196;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+      .soft-line{fill:none;stroke:#aab4c2;stroke-width:2.5;stroke-dasharray:8 10;stroke-linecap:round;marker-end:url(#arrow)}
+    </style>
+  </defs>
+
+  <rect width="1800" height="1160" rx="44" fill="url(#bg)"/>
+  <path d="M0 160 C280 80 436 238 720 142 C1030 38 1282 110 1800 18 L1800 0 L0 0Z" fill="#ffe8eb"/>
+  <path d="M0 1030 C352 970 512 1126 820 1036 C1110 952 1426 1018 1800 916 L1800 1160 L0 1160Z" fill="#e2f7f1"/>
+  <g opacity="0.36">
+    <path d="M105 170H1695M105 310H1695M105 450H1695M105 590H1695M105 730H1695M105 870H1695M105 1010H1695" stroke="#dce4ee"/>
+    <path d="M220 120V1060M420 120V1060M620 120V1060M820 120V1060M1020 120V1060M1220 120V1060M1420 120V1060M1620 120V1060" stroke="#dce4ee"/>
+  </g>
+
+  <text x="90" y="98" class="title">Redbook Campus Architecture</text>
+  <text x="92" y="136" class="subtitle">A lightweight Java 21 microservice platform with a polished Vue 3 social front end.</text>
+  <rect x="1440" y="62" width="260" height="46" rx="23" fill="url(#red)"/>
+  <text x="1472" y="92" class="chip">Docker-first local stack</text>
+
+  <text x="92" y="222" class="layer">CLIENT</text>
+  <text x="92" y="408" class="layer">EDGE</text>
+  <text x="92" y="594" class="layer">DOMAIN</text>
+  <text x="92" y="782" class="layer">EVENTS</text>
+  <text x="92" y="970" class="layer">DATA</text>
+
+  <g filter="url(#shadow)">
+    <rect x="300" y="180" width="250" height="108" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNEZDMDhEIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+VnVlLmpzPC90aXRsZT48cGF0aCBkPSJNMjQsMS42MUgxNC4wNkwxMiw1LjE2LDkuOTQsMS42MUgwTDEyLDIyLjM5Wk0xMiwxNC4wOCw1LjE2LDIuMjNIOS41OUwxMiw2LjQxbDIuNDEtNC4xOGg0LjQzWiIvPjwvc3ZnPg==" x="324" y="208" width="52" height="52"/>
+    <text x="394" y="226" class="card-title">Vue 3 Web</text>
+    <text x="394" y="252" class="card-sub">Masonry feed, search, publish</text>
+    <text x="394" y="274" class="card-sub">likes, comments, follows</text>
+
+    <rect x="640" y="180" width="250" height="108" rx="26" fill="#fff"/>
+    <rect x="666" y="210" width="50" height="50" rx="16" fill="url(#red)"/>
+    <text x="682" y="243" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#fff">T</text>
+    <text x="734" y="226" class="card-title">Token Session</text>
+    <text x="734" y="252" class="card-sub">Sa-Token bearer context</text>
+    <text x="734" y="274" class="card-sub">propagated by gateway</text>
+
+    <rect x="980" y="180" width="250" height="108" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNkRCMzNGIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+U3ByaW5nIEJvb3Q8L3RpdGxlPjxwYXRoIGQ9Im0yMy42OTMgMTAuNzA1OC00LjczLTguMTg0NGMtLjQwOTQtLjcxMDYtMS40MTY2LTEuMjk0Mi0yLjI0MDItMS4yOTQySDcuMjcyNWMtLjgxOSAwLTEuODMwOC41ODM2LTIuMjQwMiAxLjI5NDJMLjMwNyAxMC43MDU4Yy0uNDA5NS43MTA2LS40MDk1IDEuODczIDAgMi41ODM3bDQuNzI1MiA4LjE4OWMuNDA5NC43MTA3IDEuNDE2NiAxLjI5NDMgMi4yNDAyIDEuMjk0M2g5LjQ1NWMuODE5IDAgMS44MjYtLjU4MzYgMi4yNDAyLTEuMjk0Mmw0LjcyNTItOC4xODljLjQwOTUtLjcxMDcuNDA5NS0xLjg3MzIgMC0yLjU4Mzh6TTEwLjk3NjMgNS43NTQ3YzAtLjUzNjUuNDM3Ny0uOTc0Mi45NzQyLS45NzQycy45NzQyLjQzNzcuOTc0Mi45NzQydjUuODIxN2MwIC41MzY2LS40Mzc3Ljk3NDItLjk3NDIuOTc0MnMtLjk3NDItLjQzNzYtLjk3NDItLjk3NDJ6bS45NzQyIDEyLjQyOTRjLTMuNjQyNyAwLTYuNjA3Ny0yLjk2NS02LjYwNzctNi42MDc3LjAwNDctMi4wODk2Ljk5My00LjA1MjEgMi42Njg1LTUuMzA0YS44NjU3Ljg2NTcgMCAwIDEgMS4yMTQyLjE3ODguODY1Ny44NjU3IDAgMCAxLS4xNzg4IDEuMjE0M2MtMi4xNjAyIDEuNjA0OC0yLjYxMiA0LjY1OTItMS4wMDcyIDYuODE5NCAxLjYwNDkgMi4xNjAzIDQuNjU5MyAyLjYxMiA2LjgxOTUgMS4wMDcyIDEuMjM3OC0uOTE3NyAxLjk2NzMtMi4zNzIgMS45NjczLTMuOTE1N2E0Ljg5NzIgNC44OTcyIDAgMCAwLTEuOTg2MS0zLjkyNWMtLjM4Ni0uMjgyNC0uNDY2LS44Mjg0LS4xODM2LTEuMjE0My4yODI0LS4zODYuODI4My0uNDY2IDEuMjE0My0uMTgzNSAxLjY4OTUgMS4yNDcxIDIuNjgyNiAzLjIyMzggMi42ODczIDUuMzIyOCAwIDMuNjQ3NC0yLjk2NSA2LjYwNzctNi42MDc3IDYuNjA3N3oiLz48L3N2Zz4=" x="1008" y="208" width="52" height="52"/>
+    <text x="1076" y="226" class="card-title">Java 21 APIs</text>
+    <text x="1076" y="252" class="card-sub">Spring Boot 3.2 services</text>
+    <text x="1076" y="274" class="card-sub">typed domain boundaries</text>
+
+    <rect x="1320" y="180" width="250" height="108" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjQ5NkVEIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RG9ja2VyPC90aXRsZT48cGF0aCBkPSJNMTMuOTgzIDExLjA3OGgyLjExOWEuMTg2LjE4NiAwIDAwLjE4Ni0uMTg1VjkuMDA2YS4xODYuMTg2IDAgMDAtLjE4Ni0uMTg2aC0yLjExOWEuMTg1LjE4NSAwIDAwLS4xODUuMTg1djEuODg4YzAgLjEwMi4wODMuMTg1LjE4NS4xODVtLTIuOTU0LTUuNDNoMi4xMThhLjE4Ni4xODYgMCAwMC4xODYtLjE4NlYzLjU3NGEuMTg2LjE4NiAwIDAwLS4xODYtLjE4NWgtMi4xMThhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4OGMwIC4xMDIuMDgyLjE4NS4xODUuMTg1bTAgMi43MTZoMi4xMThhLjE4Ny4xODcgMCAwMC4xODYtLjE4NlY2LjI5YS4xODYuMTg2IDAgMDAtLjE4Ni0uMTg1aC0yLjExOGEuMTg1LjE4NSAwIDAwLS4xODUuMTg1djEuODg3YzAgLjEwMi4wODIuMTg1LjE4NS4xODZtLTIuOTMgMGgyLjEyYS4xODYuMTg2IDAgMDAuMTg0LS4xODZWNi4yOWEuMTg1LjE4NSAwIDAwLS4xODUtLjE4NUg4LjFhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4N2MwIC4xMDIuMDgzLjE4NS4xODUuMTg2bS0yLjk2NCAwaDIuMTE5YS4xODYuMTg2IDAgMDAuMTg1LS4xODZWNi4yOWEuMTg1LjE4NSAwIDAwLS4xODUtLjE4NUg1LjEzNmEuMTg2LjE4NiAwIDAwLS4xODYuMTg1djEuODg3YzAgLjEwMi4wODQuMTg1LjE4Ni4xODZtNS44OTMgMi43MTVoMi4xMThhLjE4Ni4xODYgMCAwMC4xODYtLjE4NVY5LjAwNmEuMTg2LjE4NiAwIDAwLS4xODYtLjE4NmgtMi4xMThhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4OGMwIC4xMDIuMDgyLjE4NS4xODUuMTg1bS0yLjkzIDBoMi4xMmEuMTg1LjE4NSAwIDAwLjE4NC0uMTg1VjkuMDA2YS4xODUuMTg1IDAgMDAtLjE4NC0uMTg2aC0yLjEyYS4xODUuMTg1IDAgMDAtLjE4NC4xODV2MS44ODhjMCAuMTAyLjA4My4xODUuMTg1LjE4NW0tMi45NjQgMGgyLjExOWEuMTg1LjE4NSAwIDAwLjE4NS0uMTg1VjkuMDA2YS4xODUuMTg1IDAgMDAtLjE4NC0uMTg2aC0yLjEyYS4xODYuMTg2IDAgMDAtLjE4Ni4xODZ2MS44ODdjMCAuMTAyLjA4NC4xODUuMTg2LjE4NW0tMi45MiAwaDIuMTJhLjE4NS4xODUgMCAwMC4xODQtLjE4NVY5LjAwNmEuMTg1LjE4NSAwIDAwLS4xODQtLjE4NmgtMi4xMmEuMTg1LjE4NSAwIDAwLS4xODQuMTg1djEuODg4YzAgLjEwMi4wODIuMTg1LjE4NS4xODVNMjMuNzYzIDkuODljLS4wNjUtLjA1MS0uNjcyLS41MS0xLjk1NC0uNTEtLjMzOC4wMDEtLjY3Ni4wMy0xLjAxLjA4Ny0uMjQ4LTEuNy0xLjY1My0yLjUzLTEuNzE2LTIuNTY2bC0uMzQ0LS4xOTktLjIyNi4zMjdjLS4yODQuNDM4LS40OS45MjItLjYxMiAxLjQzLS4yMy45Ny0uMDkgMS44ODIuNDAzIDIuNjYxLS41OTUuMzMyLTEuNTUuNDEzLTEuNzQ0LjQySC43NTFhLjc1MS43NTEgMCAwMC0uNzUuNzQ4IDExLjM3NiAxMS4zNzYgMCAwMC42OTIgNC4wNjJjLjU0NSAxLjQyOCAxLjM1NSAyLjQ4IDIuNDEgMy4xMjQgMS4xOC43MjMgMy4xIDEuMTM3IDUuMjc1IDEuMTM3Ljk4My4wMDMgMS45NjMtLjA4NiAyLjkzLS4yNjZhMTIuMjQ4IDEyLjI0OCAwIDAwMy44MjMtMS4zODljLjk4LS41NjcgMS44Ni0xLjI4OCAyLjYxLTIuMTM2IDEuMjUyLTEuNDE4IDEuOTk4LTIuOTk3IDIuNTUzLTQuNGguMjIxYzEuMzcyIDAgMi4yMTUtLjU0OSAyLjY4LTEuMDA5LjMwOS0uMjkzLjU1LS42NS43MDctMS4wNDZsLjA5OC0uMjg4WiIvPjwvc3ZnPg==" x="1348" y="208" width="52" height="52"/>
+    <text x="1416" y="226" class="card-title">Local Runtime</text>
+    <text x="1416" y="252" class="card-sub">Compose-managed middleware</text>
+    <text x="1416" y="274" class="card-sub">repeatable on Windows</text>
+  </g>
+
+  <path class="line" d="M550 234H640"/>
+  <path class="line" d="M890 234H980"/>
+  <path class="line" d="M1230 234H1320"/>
+
+  <g filter="url(#shadow)">
+    <rect x="420" y="366" width="310" height="112" rx="28" fill="#fff"/>
+    <rect x="448" y="396" width="54" height="54" rx="17" fill="url(#blue)"/>
+    <text x="464" y="431" font-family="Inter,Segoe UI,Arial" font-size="27" font-weight="900" fill="#fff">G</text>
+    <text x="522" y="413" class="card-title">Spring Cloud Gateway</text>
+    <text x="522" y="441" class="card-sub">routing, auth checks, user headers</text>
+
+    <rect x="830" y="366" width="300" height="112" rx="28" fill="#fff"/>
+    <rect x="858" y="396" width="54" height="54" rx="17" fill="url(#red)"/>
+    <text x="874" y="431" font-family="Inter,Segoe UI,Arial" font-size="27" font-weight="900" fill="#fff">A</text>
+    <text x="932" y="413" class="card-title">Auth Service</text>
+    <text x="932" y="441" class="card-sub">login, mail code, token lifecycle</text>
+  </g>
+
+  <path class="line" d="M1105 288C1080 326 1048 346 1012 366"/>
+  <path class="line" d="M575 288C575 318 575 338 575 366"/>
+  <path class="line" d="M730 422H830"/>
+
+  <g filter="url(#shadow)">
+    <rect x="230" y="552" width="214" height="112" rx="26" fill="#fff"/>
+    <rect x="256" y="582" width="54" height="54" rx="17" fill="#f9e8ff"/>
+    <text x="272" y="617" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#a233c7">U</text>
+    <text x="330" y="599" class="card-title">User</text>
+    <text x="330" y="626" class="card-sub">profiles and identity</text>
+
+    <rect x="504" y="552" width="214" height="112" rx="26" fill="#fff"/>
+    <rect x="530" y="582" width="54" height="54" rx="17" fill="#ffe8eb"/>
+    <text x="546" y="617" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#df3f52">N</text>
+    <text x="604" y="599" class="card-title">Note</text>
+    <text x="604" y="626" class="card-sub">posts and interaction</text>
+
+    <rect x="778" y="552" width="214" height="112" rx="26" fill="#fff"/>
+    <rect x="804" y="582" width="54" height="54" rx="17" fill="#fff3dc"/>
+    <text x="820" y="617" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#e98a16">C</text>
+    <text x="878" y="599" class="card-title">Comment</text>
+    <text x="878" y="626" class="card-sub">threads and replies</text>
+
+    <rect x="1052" y="552" width="214" height="112" rx="26" fill="#fff"/>
+    <rect x="1078" y="582" width="54" height="54" rx="17" fill="#e4f6ff"/>
+    <text x="1094" y="617" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#168fc7">R</text>
+    <text x="1152" y="599" class="card-title">Relation</text>
+    <text x="1152" y="626" class="card-sub">follows and fans</text>
+
+    <rect x="1326" y="552" width="214" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQzcyRTQ5IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWluSU88L3RpdGxlPjxwYXRoIGQ9Ik0xMy4yMDcyLjAwNmMtLjYyMTYtLjA0NzgtMS4yLjE5NDMtMS42MjExLjU4MmEyLjE1IDIuMTUgMCAwIDAtLjA5MzggMy4wMzUybDMuNDA4MiAzLjU1MDdhMy4wNDIgMy4wNDIgMCAwIDEtLjY2NCA0LjY4NzVsLS40NjMuMjM4M1Y3LjI4NTNhMTUuNDE5OCAxNS40MTk4IDAgMCAwLTguMDE3NCAxMC40ODYydi4wMTc2bDYuNTQ4Ny0zLjMyODF2Ny42MjFMMTMuNzc5NCAyNFYxMy42ODE3bC44OTY1LS40NjI5YTQuNDQzMiA0LjQ0MzIgMCAwIDAgMS4yMjA3LTcuMDI5MmwtMy4zNzEtMy41MjU0YS43NDg5Ljc0ODkgMCAwIDEgLjAzNy0xLjA1NDcuNzUyMi43NTIyIDAgMCAxIDEuMDU2Ny4wMzcxbC40NjY4LjQ4NjMtLjAwNi4wMDU5IDQuMDcwNCA0LjI0NDFhLjA1NjYuMDU2NiAwIDAgMCAuMDgyIDAgLjA2LjA2IDAgMCAwIDAtLjA3MDNsLTMuMTQwNi01LjE0MjUtLjE0ODQuMTQyNS4xNDg0LS4xNDQ1QzE0LjQ5NDUuMzkyNiAxMy44Mjg3LjA1MzggMTMuMjA3Mi4wMDZabS0uOTAyNCA5Ljg2NTJ2Mi45OTQxbC00LjE1MjMgMi4xNDg0YTEzLjk3ODcgMTMuOTc4NyAwIDAgMSAyLjc2NzYtMy45Mjc3IDE0LjE3ODQgMTQuMTc4NCAwIDAgMSAxLjM4NDctMS4yMTQ4eiIvPjwvc3ZnPg==" x="1352" y="584" width="50" height="50"/>
+    <text x="1420" y="599" class="card-title">OSS</text>
+    <text x="1420" y="626" class="card-sub">MinIO object files</text>
+  </g>
+
+  <path class="line" d="M575 478C558 510 458 528 337 552"/>
+  <path class="line" d="M575 478C578 514 596 530 611 552"/>
+  <path class="line" d="M575 478C650 520 744 530 885 552"/>
+  <path class="line" d="M575 478C762 504 956 524 1159 552"/>
+  <path class="line" d="M575 478C850 490 1110 520 1433 552"/>
+
+  <g filter="url(#shadow)">
+    <rect x="320" y="736" width="300" height="116" rx="28" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRDc3MzEwIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+QXBhY2hlIFJvY2tldE1RPC90aXRsZT48cGF0aCBkPSJNMTEuNDM4IDIzLjQ2N2MtLjUxNy0uNjM4LTEuMTA2LTEuODktMS4yMTctMi41ODdsLS4wODItLjUxMWgxLjgzNWMxLjQzNSAwIDEuODM1LjAzNiAxLjgzNS4xNjUgMCAuMzUyLS40MTIgMS41NTMtLjcwOSAyLjA2Ni0uMzMzLjU3Ny0xLjAyMSAxLjQxLTEuMTU1IDEuNC0uMDQzLS4wMDQtLjI3Mi0uMjQ0LS41MDctLjUzM3ptLTQuNTMyLTQuMTkzYy0xLjI1MS0zLjAwNS0xLjIzMS02Ljc4NC4wNTYtMTAuNjMuNzg2LTIuMzUgMi42NTItNS42ODkgNC40MTMtNy45TDExLjk2NyAwbC40MjIuNDkzYy43NjMuODkzIDIuNjEyIDMuNzMxIDMuMjggNS4wMzYgMS4zMiAyLjU3OCAyLjA1NSA0Ljk5MyAyLjI2NCA3LjQzOC4xOTcgMi4zMDItLjE3NiA0LjgzNy0uOTYyIDYuNTMzbC0uMzM4LjczMS0uNzI3LS40MzMtLjcyNy0uNDMzSDExLjk1Yy0yLjQ2NiAwLTMuMjg3LjAzOS0zLjQ3Ni4xNjYtLjEzNi4wOTEtLjQ1My4yOS0uNzA1LjQ0MWwtLjQ1OC4yNzYtLjQwNS0uOTc0em05LjMzOC0xLjc5Yy43NzktMi42MjMuNTMyLTYuMjUzLS42MzUtOS4zNDQtLjY4My0xLjgxLTIuMDg1LTQuMzE5LTMuMjExLTUuNzQ3LS4zNTctLjQ1Mi0uMzg3LS40NjYtLjYwOS0uMjY1LS40NDEuMzk4LTEuODU0IDIuNjIyLTIuNTQ0IDQuMDAyLTEuOTI3IDMuODU2LTIuNDg0IDcuOTk1LTEuNTIxIDExLjMwOGwuMTk2LjY3Mmg4LjEzOGwuMTg2LS42MjZ6TTMuMzExIDE5LjgzNWMuMDM3LS4xNTUuMTA4LS41NjUuMTU3LS45MDkuMDc5LS41NDkuMTg5LS43MjkuODg1LTEuNDQzbC43OTUtLjgxNS4wMDIuNTA3Yy4wMDMuNjQxLjMwMiAxLjc5OS42MzEgMi40NDVsLjI1NC40OThINC42NGMtMS4zODQtLjAwMS0xLjM5Ni0uMDAzLTEuMzI5LS4yODN6bTE0Ljk0NC0uMzc2Yy4yNzEtLjYxMy41MjktMS42MTYuNjA2LTIuMzUyLjAzMS0uMjk5LjA2Ni0uMjgyLjc2Mi4zNzlzLjczOC43MzUuOTA4IDEuNjMxYy4wOTguNTE2LjE3OS45NTIuMTc5Ljk3IDAgLjAxNy0uNjE4LjAzMS0xLjM3My4wMzFoLTEuMzczbC4yOTEtLjY1OXptLTYuNDc3LTQuNTA0YTIuMTczIDIuMTczIDAgMCAxLTIuMTctMi4xN2MwLTEuMTk2Ljk3My0yLjE3IDIuMTctMi4xN3MyLjE3Ljk3MyAyLjE3IDIuMTctLjk3MyAyLjE3LTIuMTcgMi4xN3ptMC0zLjg2NWMtLjkzNSAwLTEuNjk2Ljc2MS0xLjY5NiAxLjY5NXMuNzYxIDEuNjk2IDEuNjk2IDEuNjk2Yy45MzUgMCAxLjY5Ni0uNzYxIDEuNjk2LTEuNjk2cy0uNzYxLTEuNjk1LTEuNjk2LTEuNjk1ek05LjQ1NSA5LjQ1N2EuNjU3LjY1NyAwIDEgMSAwIDEuMzE0LjY1Ny42NTcgMCAwIDEgMC0xLjMxNHptLS4zNTcgNC42NjVhLjguOCAwIDEgMSAwIDEuNi44LjggMCAwIDEgMC0xLjZ6bTUuMjEyLTUuMThhMS4wNjkgMS4wNjkgMCAxIDEgMCAyLjEzOCAxLjA2OSAxLjA2OSAwIDAgMSAwLTIuMTM4em0wIDUuNzVhMS40MTggMS40MTggMCAxIDEgMCAyLjgzNiAxLjQxOCAxLjQxOCAwIDAgMSAwLTIuODM2ek05LjQ0NyAxMC42OGwuNDkxLS40OTEuNzI5LjcyOS0uNDkxLjQ5MS0uNzI5LS43Mjl6bTQuMDY2LS4zMzZsLjUzOS41MzktLjcyOS43MjktLjUzOS0uNTM5LjcyOS0uNzI5em0tMy41NzIgMy4zNjJsLjQ5MS40OTEtLjcyOS43MjktLjQ5MS0uNDkxLjcyOS0uNzI5em0yLjcyMSAxLjA2NGwuNjEtLjU5Ljc3OS43NTQtLjYxLjU5LS43NzktLjc1NHptLTEuNzE3LTIuMTY3YS4yNzcuMjc3IDAgMSAxIDAgLjU1NC4yNzcuMjc3IDAgMCAxIDAtLjU1NHptLjc5NCAwYS4yNzcuMjc3IDAgMSAxIDAgLjU1NC4yNzcuMjc3IDAgMCAxIDAtLjU1NHptLjc5NCAwYS4yNzcuMjc3IDAgMSAxIDAgLjU1NC4yNzcuMjc3IDAgMCAxIDAtLjU1NHoiLz48L3N2Zz4=" x="350" y="768" width="54" height="54"/>
+    <text x="424" y="784" class="card-title">RocketMQ</text>
+    <text x="424" y="812" class="card-sub">ordered domain events</text>
+
+    <rect x="740" y="736" width="300" height="116" rx="28" fill="#fff"/>
+    <rect x="770" y="768" width="54" height="54" rx="17" fill="url(#green)"/>
+    <text x="786" y="803" font-family="Inter,Segoe UI,Arial" font-size="26" font-weight="900" fill="#fff">Σ</text>
+    <text x="844" y="784" class="card-title">Count Service</text>
+    <text x="844" y="812" class="card-sub">aggregated counters</text>
+
+    <rect x="1160" y="736" width="300" height="116" rx="28" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA1NTcxIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RWxhc3RpY3NlYXJjaDwvdGl0bGU+PHBhdGggZD0iTTEzLjM5NCAwQzguNjgzIDAgNC42MDkgMi43MTYgMi42NDQgNi42NjdoMTUuNjQxYTQuNzcgNC43NyAwIDAgMCAzLjA3My0xLjExYy40NDYtLjM3NS44NjQtLjc4NSAxLjI0Ny0xLjI0M2wuMDAxLS4wMDJBMTEuOTc0IDExLjk3NCAwIDAgMCAxMy4zOTQgMHpNMS44MDQgOC44ODlhMTIuMDA5IDEyLjAwOSAwIDAgMCAwIDYuMjIyaDE0LjdhMy4xMTEgMy4xMTEgMCAxIDAgMC02LjIyMnptLjg0IDguNDQ0QzQuNjEgMjEuMjgzIDguNjg0IDI0IDEzLjM5NSAyNGMzLjcwMSAwIDcuMDExLTEuNjc3IDkuMjEyLTQuMzEybC0uMDAxLS4wMDJhOS45NTggOS45NTggMCAwIDAtMS4yNDctMS4yNDMgNC43NyA0Ljc3IDAgMCAwLTMuMDczLTEuMTF6Ii8+PC9zdmc+" x="1190" y="768" width="54" height="54"/>
+    <text x="1264" y="784" class="card-title">Search Service</text>
+    <text x="1264" y="812" class="card-sub">note and user discovery</text>
+  </g>
+
+  <path class="soft-line" d="M611 664C584 702 542 720 470 736"/>
+  <path class="soft-line" d="M885 664C798 696 660 720 470 736"/>
+  <path class="soft-line" d="M1159 664C998 690 748 718 470 736"/>
+  <path class="line" d="M620 794H740"/>
+  <path class="line" d="M1040 794H1160"/>
+
+  <g filter="url(#shadow)">
+    <rect x="170" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDQ3OUExIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TXlTUUw8L3RpdGxlPjxwYXRoIGQ9Ik0xNi40MDUgNS41MDFjLS4xMTUgMC0uMTkzLjAxNC0uMjc0LjAzM3YuMDEzaC4wMTRjLjA1NC4xMDQuMTQ2LjE4LjIxNC4yNzMuMDU0LjEwNy4xLjIxNC4xNTQuMzJsLjAxNC0uMDE1Yy4wOTQtLjA2Ni4xNC0uMTcyLjE0LS4zMzMtLjA0LS4wNDctLjA0Ni0uMDk0LS4wOC0uMTQtLjA0LS4wNjctLjEyNi0uMS0uMTgtLjE1M3pNNS43NyAxOC42OTVoLS45MjdhNTAuODU0IDUwLjg1NCAwIDAwLS4yNy00LjQxaC0uMDA4bC0xLjQxIDQuNDFIMi40NWwtMS40LTQuNDFoLS4wMWE3Mi44OTIgNzIuODkyIDAgMDAtLjE5NSA0LjQxSDBjLjA1NS0xLjk2Ni4xOTItMy44MS40MS01LjUzaDEuMTVsMS4zMzUgNC4wNjRoLjAwOGwxLjM0Ny00LjA2NGgxLjA5NWMuMjQyIDIuMDE1LjM4NCAzLjg2LjQyOCA1LjUzem00LjAxNy00LjA4Yy0uMzc4IDIuMDQ1LS44NzYgMy41MzMtMS40OTIgNC40Ni0uNDgyLjcxNi0xLjAxIDEuMDczLTEuNTgzIDEuMDczLS4xNTMgMC0uMzQtLjA0Ni0uNTY2LS4xMzh2LS40OTRjLjExLjAxNy4yNC4wMjYuMzg2LjAyNi4yNjggMCAuNDgzLS4wNzUuNjQ3LS4yMjIuMTk3LS4xOC4yOTUtLjM4Mi4yOTUtLjYwNSAwLS4xNTUtLjA3Ny0uNDctLjIzLS45NDRMNi4yMyAxNC42MTVoLjkxbC43MjcgMi4zNmMuMTY0LjUzNi4yMzMuOTEuMjA1IDEuMTIzLjQtMS4wNjQuNjc4LTIuMjI3LjgzNS0zLjQ4M3ptMTIuMzI1IDQuMDhoLTIuNjN2LTUuNTNoLjg4NXY0Ljg1aDEuNzQ1em0tMy4zMi4xMzVsLTEuMDE2LS41Yy4wOS0uMDc2LjE3Ny0uMTU4LjI1NS0uMjUuNDMzLS41MDYuNjQ4LTEuMjU4LjY0OC0yLjI1MyAwLTEuODMtLjcxOC0yLjc0Ni0yLjE1NS0yLjc0Ni0uNzA0IDAtMS4yNTQuMjMyLTEuNjUuNjk3LS40My41MDgtLjY0NiAxLjI1Ni0uNjQ2IDIuMjQ1IDAgLjk3Mi4xOSAxLjY4Ni41NzQgMi4xNC4zNS40MS44NzcuNjE1IDEuNTgzLjYxNS4yNjQgMCAuNTA2LS4wMzMuNzI1LS4wOThsMS4zMjUuNzcyLjM2LS42MjJ6TTE1LjUgMTcuNTg4Yy0uMjI1LS4zNi0uMzM3LS45NC0uMzM3LTEuNzM2IDAtMS4zOTMuNDI0LTIuMDkgMS4yNy0yLjA5LjQ0MyAwIC43Ny4xNjcuOTc3LjUuMjI0LjM2Mi4zMzYuOTM2LjMzNiAxLjcyMyAwIDEuNDA0LS40MjQgMi4xMDgtMS4yNyAyLjEwOC0uNDQ1IDAtLjc3LS4xNjctLjk3OC0uNXptLTEuNjU4LS40MjVjMCAuNDctLjE3Mi44NTYtLjUxNiAxLjE1Ni0uMzQ0LjMtLjgwMy40NS0xLjM4NC40NS0uNTQzIDAtMS4wNjQtLjE3Mi0xLjU3My0uNTE1bC4yMzctLjQ3NmMuNDM4LjIyLjgzMy4zMjggMS4xOS4zMjguMzMyIDAgLjU5My0uMDczLjc4My0uMjJhLjc1NC43NTQgMCAwMC4zLS42MTVjMC0uMzMtLjIzLS42MS0uNjQ4LS44NDUtLjM4OC0uMjEzLTEuMTYzLS42NTctMS4xNjMtLjY1Ny0uNDIyLS4zMDctLjYzMi0uNjM2LS42MzItMS4xNzcgMC0uNDUuMTU3LS44MS40Ny0xLjA4NS4zMTUtLjI3OC43Mi0uNDE1IDEuMjItLjQxNS41MTIgMCAuOTguMTM2IDEuNC40MWwtLjIxMy40NzZhMi43MjYgMi43MjYgMCAwMC0xLjA2NC0uMjNjLS4yODMgMC0uNTAyLjA2OC0uNjU0LjIwNmEuNjg1LjY4NSAwIDAwLS4yNDguNTI0YzAgLjMyOC4yMzQuNjEuNjY2Ljg1LjM5My4yMTUgMS4xODcuNjcgMS4xODcuNjcuNDMzLjMwNS42NDguNjMuNjQ4IDEuMTY4em05LjM4Mi01Ljg1MmMtLjUzNS0uMDE0LS45NS4wNC0xLjI5Ny4xODgtLjEuMDQtLjI2LjA0LS4yNzQuMTY3LjA1NS4wNTMuMDYzLjE0LjExLjIxNC4wOC4xMzQuMjE4LjMxMy4zNDYuNDA3LjE0LjExLjI4LjIxNi40MjcuMzEuMjYuMTYuNTU1LjI1NS44MS40MTYuMTQ1LjA5NC4yOTMuMjEzLjQ0LjMxMy4wNzMuMDUuMTIuMTQuMjE0LjE3MnYtLjAyYy0uMDQ2LS4wNi0uMDYtLjE0Ny0uMTA1LS4yMTQtLjA2Ny0uMDY3LS4xMzQtLjEyNy0uMi0uMTkzYTMuMjIzIDMuMjIzIDAgMDAtLjY5NS0uNjc1Yy0uMjE0LS4xNDYtLjY4Mi0uMzUtLjc3LS41OTVsLS4wMTMtLjAxNGMuMTQ2LS4wMTMuMzItLjA2Ni40Ni0uMTA2LjIyNy0uMDYuNDM1LS4wNDcuNjctLjEwNi4xMDYtLjAyNy4yMTMtLjA2LjMyLS4wOTR2LS4wNmMtLjEyLS4xMi0uMjEtLjI4My0uMzM0LS4zOTVhOC44NjcgOC44NjcgMCAwMC0xLjEwNC0uODIzYy0uMjEtLjEzNC0uNDc2LS4yMi0uNjk3LS4zMzQtLjA4LS4wNC0uMjE0LS4wNi0uMjYtLjEyNy0uMTItLjE0Ni0uMTktLjM0LS4yNzUtLjUxNGExNy42OSAxNy42OSAwIDAxLS41NDctMS4xNjNjLS4xMi0uMjYyLS4xOTMtLjUyMy0uMzQtLjc2My0uNjktMS4xMzctMS40MzctMS44MjYtMi41ODYtMi41LS4yNDctLjE0LS41NDMtLjItLjg1Ni0uMjc0LS4xNjctLjAwOC0uMzM0LS4wMi0uNS0uMDI3LS4xMS0uMDQ3LS4yMTYtLjE3NC0uMzEtLjIzNS0uMzgtLjI0LTEuMzY0LS43Ni0xLjY0NC0uMDcyLS4xOC40MzQuMjY3Ljg2Mi40MjIgMS4wODIuMTE1LjE1My4yNi4zMjguMzQuNS4wNDcuMTE2LjA2LjIzNS4xMDcuMzU2LjEwNi4yOTQuMjA3LjYyMi4zNDcuODk3LjA3My4xNC4xNTMuMjg3LjI0Ny40MTMuMDU0LjA3My4xNDYuMTA3LjE2Ny4yMjctLjA5NC4xMzYtLjEuMzM0LS4xNTQuNS0uMjQuNzU3LS4xNDYgMS42OTMuMTk0IDIuMjUuMTA3LjE2Ni4zNjIuNTM0LjcwMy4zOTMuMy0uMTIuMjM0LS41LjMyLS44MzUuMDItLjA4LjAwNy0uMTMzLjA0OC0uMTg3di4wMTVjLjA5NC4xODguMTg4LjM2Ny4yNzQuNTU1LjIwNi4zMjguNTY2LjY2OC44NjcuODk1LjE2LjEyLjI4Ny4zMjguNDg3LjQwMnYtLjAyaC0uMDE1Yy0uMDQzLS4wNTgtLjEtLjA4Ni0uMTU0LS4xMzNhMy40NDUgMy40NDUgMCAwMS0uMzUtLjQgOC43NiA4Ljc2IDAgMDEtLjc0Ny0xLjIxOGMtLjExLS4yMS0uMjAyLS40MzYtLjI5LS42NDMtLjA0LS4wOC0uMDQtLjItLjEwNy0uMjQtLjEuMTQ2LS4yNDcuMjczLS4zMi40NTMtLjEyNy4yODgtLjE0LjY0Mi0uMTg4IDEuMDEtLjAyNy4wMDctLjAxNCAwLS4wMjcuMDE0LS4yMTQtLjA1Mi0uMjg3LS4yNzQtLjM2Ny0uNDYtLjItLjQ3NS0uMjMzLTEuMjM4LS4wNi0xLjc4NS4wNDctLjE0LjI0Ny0uNTgyLjE2Ny0uNzE2LS4wNDItLjEyNy0uMTc0LS4yLS4yNDctLjMwM2EyLjQ3OCAyLjQ3OCAwIDAxLS4yNC0uNDI3Yy0uMTYtLjM3NC0uMjQtLjc4OC0uNDE0LTEuMTYyLS4wOC0uMTczLS4yMi0uMzU0LS4zMzQtLjUxMy0uMTI3LS4xOC0uMjY3LS4zMDctLjM2OC0uNTItLjAzMy0uMDczLS4wOC0uMTk0LS4wMjctLjI3NC4wMTQtLjA1NC4wNDItLjA3NS4wOTQtLjA5LjA4OC0uMDcyLjMzNS4wMjIuNDIyLjA2Mi4yNDcuMS40NTUuMTk0LjY2Mi4zMzQuMDk0LjA2Ni4xOTUuMTkzLjMxNS4yMjZoLjE0Yy4yMTQuMDQ3LjQ1NS4wMTQuNjU1LjA3My4zNTUuMTE0LjY3NS4yOC45NjIuNDZhNS45NTMgNS45NTMgMCAwMTIuMDg1IDIuMjg2Yy4wOC4xNTQuMTE1LjI5NS4xODguNDU1LjE0LjMzLjMxMy42NjMuNDU1Ljk4Mi4xNC4zMTUuMjc1LjYzNi40NzYuODk3LjEuMTQuNTAyLjIxMy42ODIuMjg2LjEzMy4wNi4zNC4xMTUuNDYuMTg4LjIzLjE0LjQ1NC4zLjY3LjQ1NC4xMS4wNzYuNDQzLjI0My40NjMuMzc4eiIvPjwvc3ZnPg==" x="198" y="960" width="54" height="54"/>
+    <text x="270" y="976" class="card-title">MySQL</text>
+    <text x="270" y="1004" class="card-sub">business source of truth</text>
+
+    <rect x="442" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkY0NDM4IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UmVkaXM8L3RpdGxlPjxwYXRoIGQ9Ik0yMi43MSAxMy4xNDVjLTEuNjYgMi4wOTItMy40NTIgNC40ODMtNy4wMzggNC40ODMtMy4yMDMgMC00LjM5Ny0yLjgyNS00LjQ4LTUuMTIuNzAxIDEuNDg0IDIuMDczIDIuNjg1IDQuMjE0IDIuNjMgNC4xMTctLjEzMyA2Ljk0LTMuODUyIDYuOTQtNy4yMzkgMC00LjA1LTMuMDIyLTYuOTcyLTguMjY4LTYuOTcyLTMuNzUyIDAtOC40IDEuNDI4LTExLjQ1NSAzLjY4NUMyLjU5IDYuOTM3IDMuODg1IDkuOTU4IDQuMzUgOS42MjZjMi42NDgtMS45MDQgNC43NDgtMy4xMyA2Ljc4NC0zLjc0NEM4LjEyIDkuMjQ0Ljg4NiAxNy4wNSAwIDE4LjQyNWMuMSAxLjI2MSAxLjY2IDQuNjQ4IDIuNDI0IDQuNjQ4LjIzMiAwIC40MzEtLjEzMy42NjQtLjM2NWExMDAuNDkgMTAwLjQ5IDAgMCAwIDUuNTQtNi43NjVjLjIyMiAzLjEwNCAxLjc0OCA2Ljg5OCA2LjAxNCA2Ljg5OCAzLjgxOSAwIDcuNjA0LTIuNzU2IDkuMzMtOC45NjUuMi0uNzY0LS43My0xLjM2MS0xLjI2MS0uNzN6bS00LjM0OS01LjAxM2MwIDEuOTU5LTEuOTI2IDIuOTIyLTMuNjg1IDIuOTIyLS45NDEgMC0xLjY2NC0uMjQ3LTIuMjM1LS41NjggMS4wNTEtMS41OTIgMi4wOTItMy4yMjUgMy4yMS00Ljk3MyAxLjk3Mi4zMzQgMi43MSAxLjQzIDIuNzEgMi42MTl6Ii8+PC9zdmc+" x="470" y="960" width="54" height="54"/>
+    <text x="542" y="976" class="card-title">Redis</text>
+    <text x="542" y="1004" class="card-sub">sessions, sets, hot data</text>
+
+    <rect x="714" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDA1NTcxIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RWxhc3RpY3NlYXJjaDwvdGl0bGU+PHBhdGggZD0iTTEzLjM5NCAwQzguNjgzIDAgNC42MDkgMi43MTYgMi42NDQgNi42NjdoMTUuNjQxYTQuNzcgNC43NyAwIDAgMCAzLjA3My0xLjExYy40NDYtLjM3NS44NjQtLjc4NSAxLjI0Ny0xLjI0M2wuMDAxLS4wMDJBMTEuOTc0IDExLjk3NCAwIDAgMCAxMy4zOTQgMHpNMS44MDQgOC44ODlhMTIuMDA5IDEyLjAwOSAwIDAgMCAwIDYuMjIyaDE0LjdhMy4xMTEgMy4xMTEgMCAxIDAgMC02LjIyMnptLjg0IDguNDQ0QzQuNjEgMjEuMjgzIDguNjg0IDI0IDEzLjM5NSAyNGMzLjcwMSAwIDcuMDExLTEuNjc3IDkuMjEyLTQuMzEybC0uMDAxLS4wMDJhOS45NTggOS45NTggMCAwIDAtMS4yNDctMS4yNDMgNC43NyA0Ljc3IDAgMCAwLTMuMDczLTEuMTF6Ii8+PC9zdmc+" x="742" y="960" width="54" height="54"/>
+    <text x="814" y="976" class="card-title">Elasticsearch</text>
+    <text x="814" y="1004" class="card-sub">search index</text>
+
+    <rect x="986" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjQzcyRTQ5IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+TWluSU88L3RpdGxlPjxwYXRoIGQ9Ik0xMy4yMDcyLjAwNmMtLjYyMTYtLjA0NzgtMS4yLjE5NDMtMS42MjExLjU4MmEyLjE1IDIuMTUgMCAwIDAtLjA5MzggMy4wMzUybDMuNDA4MiAzLjU1MDdhMy4wNDIgMy4wNDIgMCAwIDEtLjY2NCA0LjY4NzVsLS40NjMuMjM4M1Y3LjI4NTNhMTUuNDE5OCAxNS40MTk4IDAgMCAwLTguMDE3NCAxMC40ODYydi4wMTc2bDYuNTQ4Ny0zLjMyODF2Ny42MjFMMTMuNzc5NCAyNFYxMy42ODE3bC44OTY1LS40NjI5YTQuNDQzMiA0LjQ0MzIgMCAwIDAgMS4yMjA3LTcuMDI5MmwtMy4zNzEtMy41MjU0YS43NDg5Ljc0ODkgMCAwIDEgLjAzNy0xLjA1NDcuNzUyMi43NTIyIDAgMCAxIDEuMDU2Ny4wMzcxbC40NjY4LjQ4NjMtLjAwNi4wMDU5IDQuMDcwNCA0LjI0NDFhLjA1NjYuMDU2NiAwIDAgMCAuMDgyIDAgLjA2LjA2IDAgMCAwIDAtLjA3MDNsLTMuMTQwNi01LjE0MjUtLjE0ODQuMTQyNS4xNDg0LS4xNDQ1QzE0LjQ5NDUuMzkyNiAxMy44Mjg3LjA1MzggMTMuMjA3Mi4wMDZabS0uOTAyNCA5Ljg2NTJ2Mi45OTQxbC00LjE1MjMgMi4xNDg0YTEzLjk3ODcgMTMuOTc4NyAwIDAgMSAyLjc2NzYtMy45Mjc3IDE0LjE3ODQgMTQuMTc4NCAwIDAgMSAxLjM4NDctMS4yMTQ4eiIvPjwvc3ZnPg==" x="1014" y="960" width="54" height="54"/>
+    <text x="1086" y="976" class="card-title">MinIO</text>
+    <text x="1086" y="1004" class="card-sub">image storage</text>
+
+    <rect x="1258" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjAgMTYwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9Ik5hY29zIj4KICA8cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgcng9IjM2IiBmaWxsPSIjZWFmNGZmIi8+CiAgPHBhdGggZD0iTTgwIDIyIDEzMCA1MHY2MGwtNTAgMjgtNTAtMjhWNTBsNTAtMjhaIiBmaWxsPSIjMmY3ZGY2Ii8+CiAgPHBhdGggZD0iTTUyIDU4aDE4bDM4IDQ0VjU4aDE4djUwaC0xOEw3MCA2NHY0NEg1MlY1OFoiIGZpbGw9IiNmZmYiLz4KPC9zdmc+Cg==" x="1286" y="960" width="54" height="54"/>
+    <text x="1358" y="976" class="card-title">Nacos</text>
+    <text x="1358" y="1004" class="card-sub">registry and config</text>
+
+    <rect x="1530" y="928" width="212" height="112" rx="26" fill="#fff"/>
+    <image href="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMjQ5NkVEIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+RG9ja2VyPC90aXRsZT48cGF0aCBkPSJNMTMuOTgzIDExLjA3OGgyLjExOWEuMTg2LjE4NiAwIDAwLjE4Ni0uMTg1VjkuMDA2YS4xODYuMTg2IDAgMDAtLjE4Ni0uMTg2aC0yLjExOWEuMTg1LjE4NSAwIDAwLS4xODUuMTg1djEuODg4YzAgLjEwMi4wODMuMTg1LjE4NS4xODVtLTIuOTU0LTUuNDNoMi4xMThhLjE4Ni4xODYgMCAwMC4xODYtLjE4NlYzLjU3NGEuMTg2LjE4NiAwIDAwLS4xODYtLjE4NWgtMi4xMThhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4OGMwIC4xMDIuMDgyLjE4NS4xODUuMTg1bTAgMi43MTZoMi4xMThhLjE4Ny4xODcgMCAwMC4xODYtLjE4NlY2LjI5YS4xODYuMTg2IDAgMDAtLjE4Ni0uMTg1aC0yLjExOGEuMTg1LjE4NSAwIDAwLS4xODUuMTg1djEuODg3YzAgLjEwMi4wODIuMTg1LjE4NS4xODZtLTIuOTMgMGgyLjEyYS4xODYuMTg2IDAgMDAuMTg0LS4xODZWNi4yOWEuMTg1LjE4NSAwIDAwLS4xODUtLjE4NUg4LjFhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4N2MwIC4xMDIuMDgzLjE4NS4xODUuMTg2bS0yLjk2NCAwaDIuMTE5YS4xODYuMTg2IDAgMDAuMTg1LS4xODZWNi4yOWEuMTg1LjE4NSAwIDAwLS4xODUtLjE4NUg1LjEzNmEuMTg2LjE4NiAwIDAwLS4xODYuMTg1djEuODg3YzAgLjEwMi4wODQuMTg1LjE4Ni4xODZtNS44OTMgMi43MTVoMi4xMThhLjE4Ni4xODYgMCAwMC4xODYtLjE4NVY5LjAwNmEuMTg2LjE4NiAwIDAwLS4xODYtLjE4NmgtMi4xMThhLjE4NS4xODUgMCAwMC0uMTg1LjE4NXYxLjg4OGMwIC4xMDIuMDgyLjE4NS4xODUuMTg1bS0yLjkzIDBoMi4xMmEuMTg1LjE4NSAwIDAwLjE4NC0uMTg1VjkuMDA2YS4xODUuMTg1IDAgMDAtLjE4NC0uMTg2aC0yLjEyYS4xODUuMTg1IDAgMDAtLjE4NC4xODV2MS44ODhjMCAuMTAyLjA4My4xODUuMTg1LjE4NW0tMi45NjQgMGgyLjExOWEuMTg1LjE4NSAwIDAwLjE4NS0uMTg1VjkuMDA2YS4xODUuMTg1IDAgMDAtLjE4NC0uMTg2aC0yLjEyYS4xODYuMTg2IDAgMDAtLjE4Ni4xODZ2MS44ODdjMCAuMTAyLjA4NC4xODUuMTg2LjE4NW0tMi45MiAwaDIuMTJhLjE4NS4xODUgMCAwMC4xODQtLjE4NVY5LjAwNmEuMTg1LjE4NSAwIDAwLS4xODQtLjE4NmgtMi4xMmEuMTg1LjE4NSAwIDAwLS4xODQuMTg1djEuODg4YzAgLjEwMi4wODIuMTg1LjE4NS4xODVNMjMuNzYzIDkuODljLS4wNjUtLjA1MS0uNjcyLS41MS0xLjk1NC0uNTEtLjMzOC4wMDEtLjY3Ni4wMy0xLjAxLjA4Ny0uMjQ4LTEuNy0xLjY1My0yLjUzLTEuNzE2LTIuNTY2bC0uMzQ0LS4xOTktLjIyNi4zMjdjLS4yODQuNDM4LS40OS45MjItLjYxMiAxLjQzLS4yMy45Ny0uMDkgMS44ODIuNDAzIDIuNjYxLS41OTUuMzMyLTEuNTUuNDEzLTEuNzQ0LjQySC43NTFhLjc1MS43NTEgMCAwMC0uNzUuNzQ4IDExLjM3NiAxMS4zNzYgMCAwMC42OTIgNC4wNjJjLjU0NSAxLjQyOCAxLjM1NSAyLjQ4IDIuNDEgMy4xMjQgMS4xOC43MjMgMy4xIDEuMTM3IDUuMjc1IDEuMTM3Ljk4My4wMDMgMS45NjMtLjA4NiAyLjkzLS4yNjZhMTIuMjQ4IDEyLjI0OCAwIDAwMy44MjMtMS4zODljLjk4LS41NjcgMS44Ni0xLjI4OCAyLjYxLTIuMTM2IDEuMjUyLTEuNDE4IDEuOTk4LTIuOTk3IDIuNTUzLTQuNGguMjIxYzEuMzcyIDAgMi4yMTUtLjU0OSAyLjY4LTEuMDA5LjMwOS0uMjkzLjU1LS42NS43MDctMS4wNDZsLjA5OC0uMjg4WiIvPjwvc3ZnPg==" x="1558" y="960" width="54" height="54"/>
+    <text x="1630" y="976" class="card-title">Compose</text>
+    <text x="1630" y="1004" class="card-sub">one-command stack</text>
+  </g>
+
+  <path class="line" d="M337 664C312 744 286 838 276 928"/>
+  <path class="line" d="M611 664C562 736 488 838 548 928"/>
+  <path class="line" d="M470 852C450 880 418 904 276 928"/>
+  <path class="line" d="M890 852C864 884 838 908 820 928"/>
+  <path class="line" d="M1310 852C1264 888 1188 906 1092 928"/>
+  <path class="soft-line" d="M1433 664C1368 746 1288 838 1364 928"/>
+  <path class="soft-line" d="M1510 1035C1468 1074 1328 1088 1120 1088H520C352 1088 260 1070 236 1040"/>
+</svg>
+
+

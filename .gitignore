@@ -19,3 +19,9 @@
 **/target/
 **/node_modules/
 .flattened-pom.xml
+
+# Local verification artifacts
+docs/ai-xhs-seed-report.json
+docs/*-verify.png
+vue3/redbook-campus-ui.png
+vue3/test-redbook-upload.png
