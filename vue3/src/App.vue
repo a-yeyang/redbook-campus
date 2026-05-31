@@ -22,11 +22,8 @@ onUnmounted(() => {
 <template>
   <div class="xhs-shell">
     <aside class="xhs-sidebar" aria-label="主导航">
-      <RouterLink class="brand" to="/" aria-label="BIT Redbook 首页">
-        <span class="brand-symbol">
-          <img src="/bit-emblem-red.svg" alt="北京理工大学校徽" />
-        </span>
-        <strong>BIT Redbook</strong>
+      <RouterLink class="brand" to="/" aria-label="Redbook 首页">
+        <span class="brand-wordmark" aria-hidden="true">Redbook</span>
       </RouterLink>
 
       <nav class="side-nav">
@@ -102,31 +99,32 @@ onUnmounted(() => {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   width: fit-content;
+  min-height: 54px;
 }
 
-.brand-symbol {
-  display: grid;
-  width: 50px;
-  height: 50px;
-  place-items: center;
-  border-radius: 50%;
-  background: #ffffff;
-  box-shadow: 0 12px 28px rgba(215, 25, 32, 0.14);
-}
-
-.brand-symbol img {
-  width: 44px;
-  height: 44px;
-  display: block;
-}
-
-.brand strong {
-  color: #111111;
-  font-size: 1.04rem;
-  font-weight: 950;
+.brand-wordmark {
+  position: relative;
+  display: inline-block;
+  color: #ff2442;
+  font-family: 'Segoe Script', 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 2.18rem;
+  font-weight: 700;
   letter-spacing: 0;
+  line-height: 1;
+  text-shadow: 0 14px 26px rgba(255, 36, 66, 0.16);
+  transform: rotate(-2deg);
+}
+
+.brand-wordmark::after {
+  position: absolute;
+  right: 2px;
+  bottom: -5px;
+  left: 14px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 36, 66, 0.1), rgba(255, 36, 66, 0.9));
+  content: '';
 }
 
 .side-nav,
